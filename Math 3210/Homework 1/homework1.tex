@@ -1,6 +1,9 @@
 \documentclass[12pt, letterpaper]{article}
 \setlength{\parskip}{\baselineskip}%
 \usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
 
 \title{Homework 1}
 \author{Joshua Cragun \thanks{Prof. Savin, Math 3210}}
@@ -19,9 +22,51 @@ and the least rational number not in the cut in the same form, $b_i = \frac{y_i}
 
 \noindent\textbf{Solution:}
 
-To be begin, we shall start with $a_0$ and $b_0$. Because this will mean that the
- denominator of the corresponding fraction is merely 1, thus forcing it to be an
- integer, 
+To be begin, we shall start with $a_0$ and $b_0$. Recall the definition of a cut bounded by $\sqrt{3}$.
+$$ (\sqrt{3})^{*} \coloneqq \{r \in \mathbb{Q} \mid r^2 < 3 \} $$
+This will make it quite easy to determine which rational numbers are in and not
+in $\mathbb{Q}$. From the definition of $a_0$ and $b_0$, it is clear that they will
+be integers (specifcally, the two closest integers above and below $\sqrt{3}$) since the denominator is simply one.
 
+Let us then describe an algorithm for defining what the next $a_i$ and $b_i$ will be.
+We know that there exists an integer $n$ such that $(\frac{n}{m})^2 < 3$ and $(\frac{n + 1}{m})^2 > 3$ where $m \in \mathbb{N}$.
+Because the binary operation of averaging two numbers naturally multiplies the denominator by $2$ and finds the midpoint between
+two bounds (which will be tending towards $\sqrt{3}$), it is optimal for producing the following the following $a_i$ and $b_i$ in the series.
+
+A ``brute force" algorithm will then be defined as follows:
+
+\begin{enumerate}
+  \item Define possible greatest/smallest rational number in/out of the cut of a given denominator $m \in \mathbb{N}$ as $c_i = \frac{n}{m}$ as the average of $a_{i-1}$ and $b_{i-1}$ with $c_0 = \frac{0}{1}$
+  \item If $c_i^2 < 3$ increment $n$ by one until $c_i^2 > 3$, then $\frac{n}{m} = b_i$ and $\frac{n - 1}{m} = a_i$
+  \item Otherwise $c_i^2 > 3$, then decrement $n$ by one until $c_i^2 < 3$, then $\frac{n}{m} = a_i$ and $\frac{n + 1}{m} = b_i$
+\end{enumerate}
+
+\noindent Given the exponential nature of the denominator, this could prove a tedious problem by hand, however computers can execute this algorithm very swiftly.
+But, for demonstrative purposes, I shall show how this algorithm finds $a_0$ and $b_0$.
+
+Start with $c_0 = \frac{0}{1}$. Then $c_0^2 = 0 < 3$, so increment the denominator by 1 until $c_0^2 > 3$, which happens after two increments ($c_0 = \frac{2}{1}$) as $c_0^2 = 2^2 = 4 > 3$.
+
+\noindent Then we have:
+\begin{equation}
+\begin{split}
+a_0 & = \frac{n - 1}{m} = \frac{2 - 1}{1} = 1 \\
+b_0 & = c_0 = 2
+\end{split}
+\end{equation}
+
+\noindent Continuing this process for $i = 1, 2, ..., 10$ we get:
+\begin{enumerate}
+  \item $a_1 = \frac{3}{2}, b_1 = \frac{4}{2}$
+  \item $a_2 = \frac{6}{4}, b_2 = \frac{7}{4}$
+  \item $a_3 = \frac{13}{8}, b_3 = \frac{14}{8}$
+  \item $a_4 = \frac{27}{16}, b_4 = \frac{28}{16}$
+  \item $a_5 = \frac{55}{32}, b_5 = \frac{56}{32}$
+  \item $a_6 = \frac{110}{64}, b_6 = \frac{111}{64}$
+  \item $a_7 = \frac{221}{128}, b_7 = \frac{222}{128}$
+  \item $a_8 = \frac{443}{256}, b_8 = \frac{444}{256}$
+  \item $a_9 = \frac{886}{512}, b_9 = \frac{887}{512}$
+  \item $a_{10} = \frac{1773}{1024}, b_{10} = \frac{1774}{1024}$
+\end{enumerate}
+\pagebreak
 
 \end{document}
