@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1535580284 "homework1.tex" "homework1.pdf" "homework1" 1535580285
+["pdflatex"] 1535754103 "homework1.tex" "homework1.pdf" "homework1" 1535754104
   "c:/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1535565336 3332 103109f5612ad95229751940c61aada0 ""
   "c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1535564061 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1535564061 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -21,6 +21,7 @@
   "c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1535564614 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1535564614 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1535564614 1120 8b7d695260f3cff42e636090a8002094 ""
+  "c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1535564614 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1535564061 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1535564061 36741 0ee9e374ec3e30da87cdfb0ea3575226 ""
   "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1535564061 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
@@ -32,6 +33,7 @@
   "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1535564061 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1535564061 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1535564061 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
+  "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1535564061 36118 fad905eba93cff5bce1e185fe980a177 ""
   "c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1535564061 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1535566370 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1535566538 7612 729a8cc22a1ee0029997c7f74717ae05 ""
@@ -42,6 +44,7 @@
   "c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty" 1535566538 14040 ac8866aac45982ac84021584b0abb252 ""
   "c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty" 1535566538 18425 5b3c0c59d76fac78978b5558e83c1f36 ""
   "c:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty" 1535566538 20418 ca44694be1c8df491925faa194fe6edf ""
+  "c:/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty" 1535564055 12604 3dec726c041422879dc3268237f09026 ""
   "c:/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1535564061 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd" 1535564061 961 6518c6525a34feb5e8250ffa91731cff ""
   "c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd" 1535564061 961 d02606146ba5601b5645f987c92e6193 ""
@@ -71,8 +74,8 @@
   "c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1535568127 2913173 835908c48b80afa7b32e734440ec44e0 ""
   "c:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1535568192 4217499 7ecb20d0a92ec9ab5428e793855a417a ""
   "c:/texlive/2018/texmf.cnf" 1535568113 673 4ae7b2f49cee444c5343a45b5d0f169c ""
-  "homework1.aux" 1535580285 80 7c58bc55ba21c8c6a169558f6dcbc88a ""
-  "homework1.tex" 1535580283 3443 c28bed4366006e7b3c93c004a3369409 ""
+  "homework1.aux" 1535754104 152 88a788f57e4c8b6e257d46f72a9d60f5 ""
+  "homework1.tex" 1535754102 4758 9fe6f0b5a486d616dd43c937b5a8f4f5 ""
   (generated)
   "homework1.pdf"
   "homework1.log"
