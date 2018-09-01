@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{amssymb}
 
 \title{Homework 1}
 \author{Joshua Cragun \thanks{Prof. Savin, Math 3210}}
@@ -16,7 +17,7 @@
 \maketitle
 \end{titlepage}
 
-\section{Question 1}
+\section*{Question 1}
 For $i = 0, ..., 10$, construct the greatest rational number in the cut of the
 square root of $3$ in the form of a (non reduced) fraction $a_i = \frac{x_i}{2^i}$,
 and the least rational number not in the cut in the same form, $b_i = \frac{y_i}{2^i}$.
@@ -42,7 +43,7 @@ A ``brute force" recurrence relation will then be described as follows:
   \item Otherwise $n^2 > 3 \cdot m^2$, then decrement $n$ by one until $n^2 < 3 \cdot m^2$, then $\frac{n}{m} = a_i$ and $\frac{n + 1}{m} = b_i$
 \end{enumerate}
 
-\noindent Given the exponential nature of the denominator, this could prove a tedious problem by hand, however computers can execute this algorithm very swiftly.
+\noindent Given the exponential nature of how the denominator will change throughout the procedure, it could prove a tedious problem by hand, however computers can execute this algorithm very swiftly.
 But, for demonstrative purposes, I shall show how this algorithm finds $a_0$ and $b_0$.
 
 Start with $c_0 = \frac{0}{1}$. Then $c_0^2 = 0 < 3$, so increment the numerator by 1 until $c_0^2 > 3$, which happens after two increments ($c_0 = \frac{2}{1}$) as $c_0^2 = 2^2 = 4 > 3$.
@@ -69,7 +70,7 @@ b_0 & = c_0 = 2
   \item $a_{10} = \frac{1773}{1024}, b_{10} = \frac{1774}{1024}$
 \end{enumerate}
 \pagebreak
-\section{Question 2}
+\section*{Question 2}
 Let $\alpha$ and $\beta$ be two cuts of $\mathbb{Q}^+$. Let $\alpha \cdot \beta = \{ rs \mid r \in \alpha, s \in \beta \}$. Prove that $\alpha \cdot \beta$ is a cut of $\mathbb{Q}^+$.
 
 \begin{proof}
@@ -84,12 +85,13 @@ Let $\alpha$ and $\beta$ be two cuts of $\mathbb{Q}^+$. Let $\alpha \cdot \beta 
 Since $\alpha$ defines a cut and $\frac{d}{b} < a$, $\frac{d}{b} \in \alpha$. Then $d = \frac{d}{b} \cdot b$ where $\frac{d}{b} \in \alpha, b \in \beta$, so $d \in \alpha \cdot \beta$.
 
 \noindent\textbf{2.} Let $c = a \cdot b \in \alpha \cdot \beta$. Since $\alpha$ is a cut, $\exists a_2 \in \alpha: a_2 > a$,
- which then means $a_2 \cdot b \in \alpha \cdot \beta$ and $ a_2 \cdot b > a \cdot b = c$
+ which then means $a_2 \cdot b \in \alpha \cdot \beta$ and $ a_2 \cdot b > a \cdot b = c$. Thus, for any element of $\alpha \cdot \beta$,
+ one can find an element that is larger than it, i.e. it has no maximal element.
 
 \noindent And since properties 1 and 2 have been shown, $\alpha \cdot \beta$ must be a Dedekind cut.
 \end{proof}
 \pagebreak
-\section{Question 3}
+\section*{Question 3}
 Let $1^* = \{ r \in \mathbb{Q}^+ \mid r < 1 \}$. Prove that $\alpha \cdot 1^* = \alpha$ for any cut of $\mathbb{Q}^+$.
 
 \begin{proof}
@@ -98,9 +100,136 @@ Let $1^* = \{ r \in \mathbb{Q}^+ \mid r < 1 \}$. Prove that $\alpha \cdot 1^* = 
 and therefore since $\alpha$ defines a Dedekind cut, $a \cdot b \in \alpha$. So then any member of $\alpha \cdot 1^*$ must also be a member of $\alpha$, thus
 $\alpha \cdot 1^* \subseteq \alpha$.
 
-\noindent Conversely, take any member $a \in \alpha$.
+\noindent Conversely, take any member $a \in \alpha$. Because $\alpha$ is a Dedekind cut, there is an $a_2 \in \alpha : a_2 > a$.
+Then we have $a = a_2 \cdot \frac{a}{a_2}$ where $\frac{a}{a_2} < 1$ since $a < a_2$, which means that $\frac{a}{a_2} \in 1^*$; hence from the definition of $\alpha \cdot 1^*$, any member of
+$\alpha$ is also a member of $\alpha \cdot 1^*$, i.e. $\alpha \subseteq \alpha \cdot 1^*$.
+
+\noindent Thus, $\alpha \cdot 1^* = \alpha$.
 
 \end{proof}
+\pagebreak
+\section*{Question 4}
+Let $\alpha$ be a cut of $\mathbb{Q}^+$. Constrct a $\beta$ such that $\alpha \cdot \beta = 1^*$.
+
+\noindent\textbf{Solution:}
+
+\noindent First we must hypothesize what such a set $\beta$ could be. I have defined mine as follows:
+
+$$\beta \coloneqq \bigcup\limits_{r \nsubseteq \alpha} (r^{-1})^*$$
+
+Where $r$ denotes a rationally bounded cut. In other words, $\beta$ is the union of all rationally bounded cuts not contained in the given set $\alpha$ with their upper bounds inverted.
+(e.g. If $\alpha$ is $2^*$, since $3^*$ is not a subset of that cut, $\frac{1}{3}^*$
+is in the union that defines the inverse of the cut of 2.) Note that every set in the union has rational bounds,
+but due to the dense nature of rational numbers, the elements of an irrationally bounded cut will be contained in an adjacent rationally bounded cut. Further, the set is bounded above and has a supremum; namely, it is the inverse of the infimum of $\neg \alpha$. $Sup(\beta) \notin \beta$.
+We must now show that $\beta$ is a cut.
+
+\begin{proof}
+  \noindent Let $b \in \beta$ and $c < b$. Because $\beta$ is a union of cuts, there must be some cut $\beta_0 \subseteq \beta$ that $b$ is a member of.
+  Then, since $c < b$ and $b \in \beta_0$, $c \in \beta_0 \subseteq \beta$. So then $c \in \beta$.
+
+  \noindent Next, Take any $b \in \beta$. Because $\beta$ is a union of cuts, there must be some cut $\beta_0 \subseteq \beta$ that $b$ is a member of.
+  Because $\beta_0$ is a cut, there must be some $b_2 \in \beta_0 : b_2 > b$, since it has no maximal element. Then, since $b_2 \in \beta_0 \subseteq \beta$, $b_2 \in \beta$.
+  Thus, for any element in $\beta$, one can find another element of $\beta$ that is larger. Thus $\beta$ has no maximal element.
+
+  \noindent Hence $\beta$ is a cut.
+\end{proof}
+\pagebreak
+\noindent Now it must be shown that $\alpha \cdot \beta = 1^*$.
+\begin{proof}
+
+  First one must show that $\alpha \cdot \beta \subseteq 1^*$.
+
+  \noindent Take any $a \cdot b \in \alpha \cdot \beta$, $a \in \alpha$, $b \in \beta$. By definition, $b < \frac{1}{r}$ where $r$ is $Inf(\neg \alpha)$.
+  Then $a < Sup(\alpha) \leq r < \frac{1}{b}$. Then $a \cdot b < \frac{a}{r}$. Because $a, r \in \mathbb{Q}^+$ and $a < r$, $a \cdot b < \frac{a}{r} < 1$
+   which from the definition of $1^*$ means that $a \cdot b \in 1^*$. Thus, $\alpha \cdot \beta \subseteq 1^*$.
+
+   \noindent Next it will be shown that $1^* \subseteq \alpha \cdot \beta$.
+
+   \noindent Take any $p \in 1^*$, so $0 < p < 1$. Then the following is true:
+   $$ p < 1 - \frac{1}{m + 1} = \frac{m}{m + 1}$$
+   Where $m \in \mathbb{N}$ is greater then or equal to some boundary $n \in \mathbb{N}$ (i.e. $n$ is the smallest value that satisfies the given inequality).
+
+   \noindent Take any $a \in \alpha$. Then define some $q \in \mathbb{Q^+}$ such that $0< q < \frac{a}{n}$.
+   Then there exists an $m \geq n$ such that $mq \in \alpha$, but $(m + 1)q \notin \alpha$. So then we have:
+   $$ \frac{p}{mq} < \frac{m}{m + 1} \cdot \frac {1}{mq} = \frac{1}{(m + 1)q}$$
+   Because $(m + 1)q \notin \alpha$, $\big(\frac{1}{(m + 1)q}\big)^* \subset \beta$.
+   Since $\frac{p}{mq} < \frac{1}{(m + 1)q}$, we know that $\frac{p}{mq} \in \big(\frac{1}{(m + 1)q}\big)^*$. So then $\frac{p}{mq} \in \beta$.
+
+   \noindent Hence, $p = mq \cdot \frac{p}{mq} \in 1^*$ where $mq \in \alpha$ and $\frac{p}{mq} \in \beta$.
+
+   \noindent Thus any members of $1^*$ can be expressed as a product of members of $\alpha$ and $\beta$.
+   So then $1^* \subseteq \alpha \cdot \beta$ and thus $\alpha \cdot \beta = 1^*$.
+
+\end{proof}
+\pagebreak
+\section*{Question 5}
+Let $\mathbb{C}$ be the set of $2 \times 2$ matrices in the form
+\[
+\left(
+  \begin{tabular}{cc}
+  $a$ & $-b$ \\
+  $b$ & $a$
+  \end{tabular}
+\right)
+\]
+Where $a$ and $b$ are real numbers.
+
+\noindent\textbf{Part 1:} If $A$, $B \in \mathbb{C}$, prove that $A + B$, $A - B$, and $AB$ are in $\mathbb{C}$ and that $AB = BA$.
+\begin{proof}
+\noindent If we have $A = (a, b)$ and $B = (c, d)$, then $A + B = $
+\[
+\left(
+  \begin{tabular}{cc}
+  $a + c$ & $-(b + d)$ \\
+  $b + d$ & $a + c$
+  \end{tabular}
+\right)
+\]
+Since it maintains the described form for $\mathbb{C}$, $A + B \in \mathbb{C}$. Similarly $A - B =$
+\[
+\left(
+  \begin{tabular}{cc}
+  $a - c$ & $-(b - d)$ \\
+  $b - d$ & $a - c$
+  \end{tabular}
+\right)
+\]
+Which likewise maintains the criteria to be considered a member of $\mathbb{C}$
+since it matches the desired form and the sums and differences in each matrix entry are also real.
+Similarly, $AB = $
+\[
+\left(
+  \begin{tabular}{cc}
+  $ac - bd$ & $-(ad + bc)$ \\
+  $ad + bc$ & $ac - bd$
+  \end{tabular}
+\right)
+\]
+Which is clearly also a meets the criteria to be considered a member of $\mathbb{C}$. Consider $BA$.
+\[
+\left(
+  \begin{tabular}{cc}
+  $ca - db$ & $-(cb + da)$ \\
+  $cb + da$ & $ca - db$
+  \end{tabular}
+\right)
+\]
+Which, since the real multiplication and addition binary opperations are commutative, it is equivalent to $AB$.
+\end{proof}
+This implies that $\mathbb{C}$ forms a ring since the rest of a ring's properties are already innate to matrices as a whole and their operations
+ (e.g. the multiplication of matrices is already known to be associative, and a zero and identity matrix have already been established, for instance.)
+
+ \noindent\textbf{Part 2:} For every non-zero $A \in \mathbb{C}$, find $B \in \mathbb{C}$ such that $AB = 1$.
+
+ Let $A$ be of the same form as it was in part 1. It is known that a $2 \times 2$ matrix $X$ is invertable if $Det(X) \neq 0$. Let us consider $Det(A)$.
+ $$ Det(A) = a^2 + b^2 $$
+ Thus, the only way the determinate of $A = 0$ is if $a$ and $b$ are zero.
+ But since this is over all non-zero matrices, we can see then that all nonzero elements of $\mathbb{C}$ are invertable. Let us then characterize the inverse of $A$.
+
+
+
+
+
 
 
 \end{document}
