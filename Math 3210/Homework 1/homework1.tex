@@ -24,7 +24,7 @@ and the least rational number not in the cut in the same form, $b_i = \frac{y_i}
 \noindent\textbf{Solution:}
 
 To be begin, we shall start with $a_0$ and $b_0$. Recall the definition of a cut bounded by $\sqrt{3}$.
-$$ (\sqrt{3})^{*} \coloneqq \{r \in \mathbb{Q} \mid r^2 < 3 \} $$
+$$ (\sqrt{3})^{*} \coloneqq \{r \in \mathbb{Q}^+ \mid r^2 < 3 \} $$
 This will make it quite easy to determine which rational numbers are in and not
 in $(\sqrt{3})^{*}$. From the definition of $a_0$ and $b_0$, it is clear that they will
 be integers (specifcally, the two closest integers above and below $\sqrt{3}$) since the denominator is simply $2^0$, or one.
@@ -80,7 +80,7 @@ Let $\alpha$ and $\beta$ be two cuts of $\mathbb{Q}^+$. Let $\alpha \cdot \beta 
   \item $S$ has no maximal element.
 \end{enumerate}
 
-\noindent\textbf{1.} Let $c = a \cdot b \in \alpha \cdot \beta$ where $a \in \alpha$ and $b \in \beta$. Let $d < c$. Thus $d < a \cdot b$. Then $\frac{d}{b} < a$ (the inequality will not flip since this is over $\mathbb{Q}^+$).
+\noindent\textbf{1.} Let $c = a \cdot b \in \alpha \cdot \beta$ where $a \in \alpha$ and $b \in \beta$ and $\alpha$ and $\beta$ are cuts of $\mathbb{Q}^+$. Let $d < c$. Thus $d < a \cdot b$. Then $\frac{d}{b} < a$ (the inequality will not flip since this is over $\mathbb{Q}^+$).
 Since $\alpha$ defines a cut and $\frac{d}{b} < a$, $\frac{d}{b} \in \alpha$. Then $d = \frac{d}{b} \cdot b$ where $\frac{d}{b} \in \alpha, b \in \beta$, so $d \in \alpha \cdot \beta$.
 
 \noindent\textbf{2.} Let $c = a \cdot b \in \alpha \cdot \beta$. Since $\alpha$ is a cut, $\exists a_2 \in \alpha: a_2 > a$,
@@ -90,7 +90,17 @@ Since $\alpha$ defines a cut and $\frac{d}{b} < a$, $\frac{d}{b} \in \alpha$. Th
 \end{proof}
 \pagebreak
 \section{Question 3}
+Let $1^* = \{ r \in \mathbb{Q}^+ \mid r < 1 \}$. Prove that $\alpha \cdot 1^* = \alpha$ for any cut of $\mathbb{Q}^+$.
 
+\begin{proof}
+
+\noindent Take any $a \cdot b \in \alpha \cdot 1^*$, where $a \in \alpha$ and $b \in 1^*$. Then by definition, $b < 1$. Then we have $a \cdot b < a \cdot 1 = a$,
+and therefore since $\alpha$ defines a Dedekind cut, $a \cdot b \in \alpha$. So then any member of $\alpha \cdot 1^*$ must also be a member of $\alpha$, thus
+$\alpha \cdot 1^* \subseteq \alpha$.
+
+\noindent Conversely, take any member $a \in \alpha$.
+
+\end{proof}
 
 
 \end{document}
