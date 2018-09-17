@@ -1,0 +1,40 @@
+\documentclass[12pt, letterpaper]{article}
+\setlength{\parskip}{\baselineskip}%
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[scr]{rsfso}
+
+\title{Homework 2}
+\author{Joshua Cragun \thanks{Prof. Savin, Math 3210}}
+\date{September 2018}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{Question 1}
+A complex number $z$ is called \textit{algebraic} if there exists integers $a_0, a_1, ..., a_n$,
+such that $a_n z^n + \cdots + a_1 z + a_0$. Prove that the algebraic numbers are countable.
+
+\begin{proof}
+  To begin, first consider all polynomials in the form
+  $$a_n z^n + \cdots + a_1 z + a_0$$
+  From the fundamental theorem of algebra, it is known that there are $n + 1$ complex solutions to the given expression (all of whom are therefore algebraic numbers).
+  Let $\mathbb{F}$ be the set of all polynomials with integer coefficients and let $F_i$ be a set of all polynomials with integer coefficients of degree $i$. Then clearly,
+  $$ \mathbb{F} = \bigcup\limits_{i = 0}^{\infty} F_i$$
+  And clearly this is a countable union, since the $i$th term can be mapped to $i$ in the integers. Next, consider the mapping $f: F_i \mapsto \mathbb{Z}^{i+1}$:
+  $$ a_i z^i + \cdots + a_1 z + a_0 \mapsto (a_0, ..., a_i)$$
+  Evidently this defines an bijection on $F_i$ since if any outputs in $\mathbb{Z}^{i+1}$ were the same it would indicate the exact same polynomial
+  and any $(a_0, ..., a_i) \in \mathbb{Z}^{i+1}$ will corresponds unqiuely to a polynomial in $F_i$ since there are no restraints on range of acceptable coefficients
+  to any term of a given polynomial in $F_i$ or $\mathbb{F}$. 
+
+\end{proof}
+
+\end{document}
