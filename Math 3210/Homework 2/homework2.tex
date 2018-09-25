@@ -1,5 +1,4 @@
 \documentclass[12pt, letterpaper]{article}
-\setlength{\parskip}{\baselineskip}%
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage{amsfonts}
@@ -21,20 +20,75 @@
 
 \section*{Question 1}
 A complex number $z$ is called \textit{algebraic} if there exists integers $a_0, a_1, ..., a_n$,
-such that $a_n z^n + \cdots + a_1 z + a_0$. Prove that the algebraic numbers are countable.
+such that $a_n z^n + \cdots + a_1 z + a_0 = 0$. Prove that the algebraic numbers are countable.
 
 \begin{proof}
   To begin, first consider all polynomials in the form
   $$a_n z^n + \cdots + a_1 z + a_0$$
-  From the fundamental theorem of algebra, it is known that there are $n + 1$ complex solutions to the given expression (all of whom are therefore algebraic numbers).
   Let $\mathbb{F}$ be the set of all polynomials with integer coefficients and let $F_i$ be a set of all polynomials with integer coefficients of degree $i$. Then clearly,
   $$ \mathbb{F} = \bigcup\limits_{i = 0}^{\infty} F_i$$
-  And clearly this is a countable union, since the $i$th term can be mapped to $i$ in the integers. Next, consider the mapping $f: F_i \mapsto \mathbb{Z}^{i+1}$:
+  And clearly this is a countable union, since the $i$th term can be mapped to $i + 1$ in the natural numbers. Next, consider the mapping $f: F_i \mapsto \mathbb{Z}^{i+1}$:
   $$ a_i z^i + \cdots + a_1 z + a_0 \mapsto (a_0, ..., a_i)$$
-  Evidently this defines an bijection on $F_i$ since if any outputs in $\mathbb{Z}^{i+1}$ were the same it would indicate the exact same polynomial
-  and any $(a_0, ..., a_i) \in \mathbb{Z}^{i+1}$ will corresponds unqiuely to a polynomial in $F_i$ since there are no restraints on range of acceptable coefficients
-  to any term of a given polynomial in $F_i$ or $\mathbb{F}$. 
+  Evidently this defines an bijection on $F_i$ since if any outputs in $\mathbb{Z}^{i+1}$ were the same it would indicate the exact same polynomial (injective)
+  and any $(a_0, ..., a_i) \in \mathbb{Z}^{i+1}$ will corresponds unqiuely to a polynomial in $F_i$ (surjective). Further, this shows that $F_i$ is countable
+  since this is a bijection with $\mathbb{Z}^{i+1}$, which is countable as a consequence of theorem 2.13 in Rutin's \textit{Principles of Mathematical Analysis}.
+  Since $\mathbb{Z}^{i+1}$ is countable, there exists an injection $g : \mathbb{Z}^{i+1} \mapsto \mathbb{N}$.
+  Then by taking the composition $g \circ f$ we get an injection from each $F_i$ to $\mathbb{N}$. Hence, $F_i$ is countable.
+  In addition, $\mathbb{F}$ is countable since it is a countable union of countable sets.
+
+  Now, since each $F_i$ is countable it is possible for each $F_i$ to put all of their polynomials $f_n, n \in \mathbb{N}$ into a sequence $f_1, f_2, ...$ and so on.
+  By the fundamental theorem of algebra, each $f_n$ has at most $i$ roots. Let $r_j, j \in \mathbb{N}$ correspond to the set of roots of the $j$th polynomial in $\{f_n\}$.
+  Then we also have the sequence $r_1, r_2, ...$ for each $F_i \subseteq \mathbb{F}$. Define $R_i$ as the union of each $r_j$ derived from an $F_i$. Each $R_i$ is therefore
+  countable since it is a countable union of countable (or more spectifically, finite) sets. But then clearly the algebraic numbers are the union of all $R_i$, hence then
+  the algebraic numbers must be countable since they can be expressed as a countable union of countable sets.
 
 \end{proof}
+\section*{Question 2}
+Prove that the following two $(X, d)$ are metric spaces:
+\begin{itemize}
+    \item $X = \mathbb{R}^2$ and $d((x_1, x_2), (y_1, y_2)) =$ max$(|x_1 - y_1|, |x_2 - y_2|)$
+    \item $X = \mathbb{Z}$ and $d(x, x) = 0$ or $d(x, y) = \frac{1}{2^n}$, if $x \neq y$, where $2^n$ is the largest power of 2 dividing $x - y$.
+\end{itemize}
+To show if any $(X, d)$ is a metric space, one needs to show three things:
+\begin{itemize}
+    \item $d(x, y) \geq 0$ and $d(x, y) = 0$ iff $x = y$, $\forall x, y \in X$
+    \item $d(x, y) = d(y, x)$, $\forall x, y \in X$
+    \item $d(x, z) \leq d(x, y) + d(y, z)$, $\forall x, y, z \in X$
+\end{itemize}
+\textbf{Part 1:}
+To prove the first property, one must consider two cases:\\
+\\
+\noindent\textbf{Case 1: $x = y$}
+
+\noindent If $x = y$, where $x = (x_1, x_2)$ and $y = (y_1, y_2)$ then $x_1 = y_1$ and $x_2 = y_2$. Then $d(x, y) = $ max$(|x_1 - y_1|, |x_2 - y_2|) = $
+max$(|x_1 - x_1|, |x_2 - x_2|) = $ max$(|0|, |0|) = 0$. Thus, when $x = y$, $d(x, y) = 0$.\\
+\\
+\noindent\textbf{Case 2: $x \neq y$}
+
+\noindent Since $x \neq y$, $x_1 \neq y_1$ or $x_2 \neq y_2$. Then $d(x, y) = $ max$(|x_1 - y_1|, |x_2 - y_2|)$. Without loss of generality, assume that either $x_1 = y_1$ or $x_2 = y_2$.
+Then one of the arguments in max$(|x_1 - y_1|, |x_2 - y_2|)$ is zero, however the other argument must be $> 0$ since the two points are not equal. Therefore then, the output must be that difference which is $> 0$.
+Conversely, if neither $x_k = y_k, k = 1, 2$ then both differnces will be greater than zero, and therefore the distance will be greater than 0 regardless of which one had the greater difference.
+Hence, $d(x, y) \geq 0, d(x, y) = 0 \iff x = y$.\\
+\\
+For the next property, let x and y be as above.\\
+
+\noindent Then $d(x, y) = $ max$(|x_1 - y_1|, |x_2 - y_2|)$. Suppose $x_1 - y_1 = n$ and $x_2 - y_2 = m$. Then $y_1 - x_1 = -n$ and $y_2 - x_2 = -m$.
+However
+
+$$ |y_1 - x_1| = |-n| = |n| = |x_1 - y_1|$$
+And
+$$|y_2 - x_2| = |-m| = |m| = |x_2 - y_2| $$
+
+\noindent Therefore max$(|x_1 - y_1|, |x_2 - y_2|) = $ max$(|y_1 - x_1|, |y_2 - x_2|) = d(y, x)$. Thus proving the second property.\\
+\\
+\noindent Lastly, let $x, y$, and $z$ be in the same form as in the previous parts. Then $d(x, z) = |x_k - z_k|$ where $k$ can be 1 or 2 exclusively.
+Since $d(x, y) = |x - y|$ is knwon to form a metic space with $\mathbb{R}$, it is true that
+$$ |x_k - z_k| \leq |x_k - y_k| + |y_k - z_k| $$
+\noindent Further, it is also true that
+$$|x_k - y_k| \leq max(|x_1 - y_1|, |x_2 - y_2|)$$
+$$|y_k - z_k| \leq max(|y_1 - z_1|, |y_2 - z_2|)$$
+Hence, $d(x, z) \leq d(x, y) + d(y, z)$, $\forall x, y, z \in \mathbb{R}^2$. Thus this is a metric space, as was to be shown.\\
+\\
+\noindent\textbf{Part 2:}
 
 \end{document}
