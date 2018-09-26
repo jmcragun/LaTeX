@@ -82,13 +82,110 @@ $$|y_2 - x_2| = |-m| = |m| = |x_2 - y_2| $$
 \noindent Therefore max$(|x_1 - y_1|, |x_2 - y_2|) = $ max$(|y_1 - x_1|, |y_2 - x_2|) = d(y, x)$. Thus proving the second property.\\
 \\
 \noindent Lastly, let $x, y$, and $z$ be in the same form as in the previous parts. Then $d(x, z) = |x_k - z_k|$ where $k$ can be 1 or 2 exclusively.
-Since $d(x, y) = |x - y|$ is knwon to form a metic space with $\mathbb{R}$, it is true that
+Since $d(x, y) = |x - y|$ is known to form a metic space with $\mathbb{R}$, it is true that
 $$ |x_k - z_k| \leq |x_k - y_k| + |y_k - z_k| $$
 \noindent Further, it is also true that
 $$|x_k - y_k| \leq max(|x_1 - y_1|, |x_2 - y_2|)$$
 $$|y_k - z_k| \leq max(|y_1 - z_1|, |y_2 - z_2|)$$
-Hence, $d(x, z) \leq d(x, y) + d(y, z)$, $\forall x, y, z \in \mathbb{R}^2$. Thus this is a metric space, as was to be shown.\\
+Hence, $d(x, z) \leq d(x, y) + d(y, z)$, $\forall x, y, z \in \mathbb{R}^2$. Thus this is a metric space, as was to be shown.\qed\\
 \\
 \noindent\textbf{Part 2:}
+Proving the first property is very straightforward, as it is given that the distance is 0 if and only if the two integers are the same.
+Further, if the two integers are not the same there is no integer $m$ such that $\frac{1}{2^m} = 0$ thus no two unequal integers will ever have a distance of zero.\\
+\\
+The second part is a similarly quick proof. To start, if $x = y$, then by definition $d(x, y) = 0 = d(y, x)$. Conversely, if $x \neq y$ then we have if $d(x, y) = \frac{1}{2^n}$.
+Which imples that $x - y = 2^n \cdot r$ where $r$ is odd and $2^n$ is the largest power of two that divides $x - y$. Then we have:
+\begin{align*}
+  x - y &= 2^n \cdot r\\
+  -(x - y) &= -(2^n \cdot r)\\
+  y - x &= 2^n(-r)
+\end{align*}
+Hence, $2^n$ also divides $y - x$ and still is the largest $2^n$ that divides them since $-r$ is odd. Hence, $d(y, x) = d(x, y)$.\\
+\\
+To prove the triangle inequality however proves a bit more complex. If any two or more of the three points are the same it trivial to see that the triangle inequality is upheld.
+One must consider two cases when all three points are distinct:\\
+\\
+\noindent\textbf{Case 1:} Suppose $d(x, y) = \frac{1}{2^n}$ and $d(y, z) = \frac{1}{2^m}$ where $n \neq m$. Then either $n > m$ or $n < m$. Without loss of generality, assume $m > n$.
+Then $x - y = 2^n \cdot r$ and $y - z = 2^n \cdot s$ where $r$ and $s$ are odd. One can add these equations together and get:
+\begin{align*}
+  (x - y) + (y - z) &= 2^nr + 2^ms\\
+  x - z &= 2^n(r + 2^{m-n}s)
+\end{align*}
+Where $r + 2^{m-n}s$ is odd, hence $2^n$ is the greatest power of 2 that divides $x - z$ i.e. $d(x, z) = \frac{1}{2^n}$. And it is true that $\frac{1}{2^n} \leq \frac{1}{2^n} + \frac{1}{2^m}$
+hence, $d(x, z) \leq d(x, y) + d(y, z)$\\
+\\
+\noindent\textbf{Case 2:} Suppose $d(x, y) = \frac{1}{2^n} = d(y, z)$. Then $x - y = 2^nr$ and $y - z = 2^ns$. In a similar fashion as in the previous case, one can extrapolate an equation for $d(x, z)$.
+$$ x - z = 2^n(r + s) $$
+Where $r + s$ is even so the expression can be further simplified to
+$$ x - z = 2^{n+k}q $$
+With $q$ being odd. So then we have $d(x, y) + d(y, z) = 2 \cdot \frac{1}{2^n} = \frac{1}{2^{n - 1}} \geq \frac{1}{2^{n+k}}$ Hence in all cases, $d(x, z) \leq d(x, y) + d(y, z)$. Thus this is a metric space.\qed
+
+\section*{Question 3}
+Let $(X, d)$ be a metric space. The closed ball centered at $x$ and of radius $r$ is the set of $y$ such that $d(x, y) \leq r$. Prove that the compliment of the closed ball is an open set in $X$.
+\begin{proof}
+  Let $B$ be a closed ball about $x$ with a radius $r$. Then the compliment of $B$, $B^c$ is defined as follows:
+  $$ B^c = \big\{ y \in X | d(x, y) > r \big\} $$
+  Take any $y \in B^c$. Then $d(x, y) > r$; call it $s$. Then $s - r > 0$, and $B_{open}(y, s-r)$ is a subset of $B^c$. The reason is that the distance between any point $t \in B_{open}(y, s-r)$ and $y$
+  is less than $s - r$. So then, the minimum distance between some $t$ and $x$ would be greater than $s - (s - r) = r$. $d(x, t) > r$. Hence, all points are exclusively in $B^c$. Thus by definition, $B^c$ is open.
+\end{proof}
+
+\section*{Question 4}
+Prove that the intersection taken over all closed sets $F$ containing $E$ is the closure of $E$, $\bar E$; and in particular $\bar E$ is closed.
+\begin{proof}
+  To begin, because this is an intersection of of closed sets, the intersection is closed i.e. it contains all of its limit points.
+  Note that all the limit points of $E$ are limit points of the intersection as well. This is because each neighborhood of any $x \in \bar E \setminus E$ is nonempty, and since each set contains
+  $E$, the intersection of any neighborhood of $x$ and that set $F$ must also be nonempty. Hence, they are limit points of $F$ and since $F$ is closed, that point must be in every $F$.
+  Therefore, the intersection must contain $\bar E$.\\
+  \\
+  Next, consider any member of the intersection of closed sets that contain $E$. It is already known that the intersection contains all points and limit points of $E$. Consider a point $j$
+  in the intersection that is \textit{not} in $\bar E$. Then it must be a point in a closed set $F$ that $\bar E$ is a proper subset of. Let $s$ be the minimum distance from $j$ to any
+  point in $\bar E$. Then take the open ball $B$ centered about $j$ with a radius of $\frac{s}{2}$ and subtract it from $F$. Call this new set $F'$. Evidently, $F'$ is closed as
+  $F \setminus B = F \cap B^c$. But $B^c$ is closed since $B$ is open, and a finite intersection of closed sets is also closed. Further, $F'$ does not contain $j$ and contains
+  $\bar E$ as for any $x \in \bar E, d(x, j) \geq s > \frac{s}{2}$ and thus is not part of the open ball subtracted from $F$. Thus, for every $j$ not in $\bar E$, one can find a
+  closed set that contains $E$ but does not contain $j$. Therefore any member of the intersection must be a member of $\bar E$.\\
+  \\
+  Hence $\bigcap F = \bar E$, and since the intersection defines a closed set, $\bar E$ must be closed.
+\end{proof}
+\pagebreak
+\section*{Question 5}
+Assume a metric space $X$ contains a countable subset $X_0$ such that the closure of $X_0 = X$. Prove that the collection of balls centered at $x \in X_0$ with rational radii is a countable base for $X$.
+\begin{proof}
+  To begin, it would be easiest to show that the collection of balls centered at $x \in X_0$ with rational radii is countable. Since $X_0$ is countable, $\exists g: X_0 \mapsto \mathbb{N}$ for each $x \in X_0$ that is injective.
+  Then one can define an injection $f$ from the collection of balls centered at $x \in X_0$ with rational radii to $\mathbb{Z}^3$ with
+  $$ B(x, \frac{n}{d}) \mapsto (g(x), n, d)$$
+  And since $\mathbb{Z}^3$ is countable, $\exists h: \mathbb{Z}^3 \mapsto \mathbb{N}$. Thus, the composition $h \circ g$ defines an injection into $\mathbb{N}$
+  and therefore must be countable.\\
+  \\
+  Let $A$ be an open set in $X$. Then $\forall a\in A, \exists B(a, r)$ where $r$ is rational. Although there is no gurantee that $a \in X_0$, because by definition $X$ is a dense set,
+  there is some $b$ in any open ball about $a$ that is in $X_0$. Let $b \in B(x, \frac{r}{2})$. Then $B(b, \frac{r}{2})$ is in $B(x, r)$ since for any $c \in B(b, \frac{r}{2}), d(c, b) < \frac{r}{2}$
+  and $d(b, x) < \frac{r}{2}$ and then $\frac{r}{2} + \frac{r}{2} = r > d(c, b) + d(b, x) \geq d(c, x) $, $c$ must be in $B(x, r)$. And if $B(b, \frac{r}{2}) \subseteq B(x, r) \subseteq A$, then $B(b, \frac{r}{2})$ is in $A$.
+  Hence, the collection of balls centered at $x \in X_0$ with rational radii is a base for $X$ since this can be done for any point in $A$.
+
+  Thus, since the balls centered at $x \in X_0$ with rational radii are both countable and form a base of $X$, they must be a countable base for $X$.
+\end{proof}
+
+\section*{Question 6}
+Show that a convex set in $\mathbb{R}^2$ is connected.
+\begin{proof}
+  This is most easily shown as a proof by contrapositive. Let a set $S$ in $\mathbb{R}^2$ be disconnected. then
+  $$ S = A \cup B $$
+  where $A$ and $B$ are seperate, i.e. neither contains any element of the other nor their limit points. Then take any segment from $[a, b]$ with $a \in A$ and $b \in B$.
+  Then consider two different cases:\\
+  \\
+  \noindent\textbf{Case 1:} $A$ and $B$ share at least one limit point
+
+  Then, since $A$ and $B$ are seperate, neither contain those limit points. Let $\alpha$ be a shared limit point between $A$ and $B$. Then by definition, any ball about $\alpha$ with a radius $r$ contains some points
+  in $A$ and $B$. Then one can find some $(a_1, a_2) \in A$ and $(b_1, b_2) \in B$ such that $a_1 - \alpha = \alpha - b_1$ and $a_2 - \alpha = \alpha - b_2$  (or vice versa) due to the symmetric shape of the ball. Then that segment
+  $[(a_1, a_2), (b_1, b_2)]$ would contain $\alpha$, but $\alpha$ is in neither $A$ nor $B$, hence these sets are not convex.\\
+  \\
+  \noindent\textbf{Case 2:} $A$ and $B$ share no limits points.
+
+  Without loss of generality, take any ball centered about some $a \in A$ with radius $r$. Then increase the ball's radius until for some limit point of $A$ called $\alpha$, $d(a, \alpha) = r$.
+  This is the nearest limit point to $a$, and the ball is contained in $A$ since all other limit points have a distance greater than or equal to $r$.
+  No matter what $\alpha$ is not a limit point of b, there is some $s$ such that $B(\alpha, s) \cap B = \emptyset$. Because of the symmetrical shape of the ball,
+  one of the line segments of length $s$ from $\alpha$ is colinear to the line segment from $[a, \alpha]$. But clearly the union of those two line segments contains elements in neither $A$ nor $B$ as
+  the extention of the segement with length $s$ contains no points of $B$, but also passes the limit point $\alpha$, it contains points that are not in $A$ either.
+  This shows that any line segment drawn from any point in $A$ or $B$ will contain elements in neither set. Hence, $A$ and $B$ cannot be convex.
+\end{proof}
 
 \end{document}

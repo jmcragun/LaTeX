@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1537915752 "homework2.tex" "homework2.pdf" "homework2" 1537915753
+["pdflatex"] 1537992026 "homework2.tex" "homework2.pdf" "homework2" 1537992027
   "c:/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1515710343 3332 103109f5612ad95229751940c61aada0 ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1515708823 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1515708823 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -30,8 +30,10 @@
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1515708823 35752 024fb6c41858982481f6968b5fc26508 ""
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1515708823 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1515708823 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
+  "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1515708823 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1515708823 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1515708823 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1515708823 32587 65067f817f408bc71a7312f3d9828a9b ""
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1515708823 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1515708823 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1515708824 36118 fad905eba93cff5bce1e185fe980a177 ""
@@ -84,8 +86,8 @@
   "c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1515716391 2559829 0fb8f96e2d89c59a376cdc578987c680 ""
   "c:/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1515716546 4127837 ceceae6e10a2789389d516ce5d8c86f9 ""
   "c:/texlive/2017/texmf.cnf" 1515716350 673 4ae7b2f49cee444c5343a45b5d0f169c ""
-  "homework2.aux" 1537915753 8 a94a2480d3289e625eea47cd1b285758 ""
-  "homework2.tex" 1537915749 5630 67c1c4fa9bf9818a9d6423a1d922a320 ""
+  "homework2.aux" 1537992027 8 a94a2480d3289e625eea47cd1b285758 ""
+  "homework2.tex" 1537992019 14313 8f3d26651a6a088d37fcd4013c3fcb38 ""
   (generated)
   "homework2.log"
   "homework2.pdf"
