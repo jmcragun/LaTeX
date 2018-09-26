@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.11)  26 SEP 2018 14:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.11)  26 SEP 2018 14:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -565,76 +565,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--62
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--67
+Underfull \hbox (badness 10000) in paragraph at lines 69--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--74
+Underfull \hbox (badness 10000) in paragraph at lines 76--82
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--86
+Underfull \hbox (badness 10000) in paragraph at lines 76--82
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 89--98
+Underfull \hbox (badness 10000) in paragraph at lines 90--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--98
+Underfull \hbox (badness 10000) in paragraph at lines 97--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 102--110
+Underfull \hbox (badness 10000) in paragraph at lines 97--106
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 113--118
+Underfull \hbox (badness 10000) in paragraph at lines 110--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--126
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 135--148
+Underfull \hbox (badness 10000) in paragraph at lines 143--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--148
+Underfull \hbox (badness 10000) in paragraph at lines 143--156
 
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 155--163
+[5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 163--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--176
+Underfull \hbox (badness 10000) in paragraph at lines 181--186
 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 177--182
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 187--192
 
  []
 
-[7] (./homework2.aux) ) 
+[8] (./homework2.aux) ) 
 Here is how much of TeX's memory you used:
  3503 strings out of 492980
  47064 string characters out of 6136207
@@ -645,10 +645,10 @@ Here is how much of TeX's memory you used:
  55i,11n,42p,299b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texli
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on homework2.pdf (8 pages, 174691 bytes).
+Output written on homework2.pdf (9 pages, 175575 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

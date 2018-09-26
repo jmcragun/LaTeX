@@ -27,7 +27,7 @@ such that $a_n z^n + \cdots + a_1 z + a_0 = 0$. Prove that the algebraic numbers
   $$a_n z^n + \cdots + a_1 z + a_0$$
   Let $\mathbb{F}$ be the set of all polynomials with integer coefficients and let $F_i$ be a set of all polynomials with integer coefficients of degree $i$. Then clearly,
   $$ \mathbb{F} = \bigcup\limits_{i = 0}^{\infty} F_i$$
-  And clearly this is a countable union, since the $i$th term can be mapped to $i + 1$ in the natural numbers. Next, consider the mapping $f: F_i \mapsto \mathbb{Z}^{i+1}$:
+  And clearly this is a countable union, since the $i$th term can be mapped to $i + 1$ as an injection in the natural numbers. Next, consider the mapping $f: F_i \mapsto \mathbb{Z}^{i+1}$:
   $$ a_i z^i + \cdots + a_1 z + a_0 \mapsto (a_0, ..., a_i)$$
   Evidently this defines an bijection on $F_i$ since if any outputs in $\mathbb{Z}^{i+1}$ were the same it would indicate the exact same polynomial (injective)
   and any $(a_0, ..., a_i) \in \mathbb{Z}^{i+1}$ will corresponds unqiuely to a polynomial in $F_i$ (surjective). Further, this shows that $F_i$ is countable
@@ -37,7 +37,7 @@ such that $a_n z^n + \cdots + a_1 z + a_0 = 0$. Prove that the algebraic numbers
   In addition, $\mathbb{F}$ is countable since it is a countable union of countable sets.
 
   Now, since each $F_i$ is countable it is possible for each $F_i$ to put all of their polynomials $f_n, n \in \mathbb{N}$ into a sequence $f_1, f_2, ...$ and so on.
-  By the fundamental theorem of algebra, each $f_n$ has at most $i$ roots. Let $r_j, j \in \mathbb{N}$ correspond to the set of roots of the $j$th polynomial in $\{f_n\}$.
+  By the fundamental theorem of algebra, each $f_n$ has at most $i$ distinct roots. Let $r_j, j \in \mathbb{N}$ correspond to the set of roots of the $j$th polynomial in $\{f_n\}$.
   Then we also have the sequence $r_1, r_2, ...$ for each $F_i \subseteq \mathbb{F}$. Define $R_i$ as the union of each $r_j$ derived from an $F_i$. Each $R_i$ is therefore
   countable since it is a countable union of countable (or more spectifically, finite) sets. But then clearly the algebraic numbers are the union of all $R_i$, hence then
   the algebraic numbers must be countable since they can be expressed as a countable union of countable sets.
@@ -60,8 +60,16 @@ To prove the first property, one must consider two cases:\\
 \\
 \noindent\textbf{Case 1: $x = y$}
 
-\noindent If $x = y$, where $x = (x_1, x_2)$ and $y = (y_1, y_2)$ then $x_1 = y_1$ and $x_2 = y_2$. Then $d(x, y) = $ max$(|x_1 - y_1|, |x_2 - y_2|) = $
-max$(|x_1 - x_1|, |x_2 - x_2|) = $ max$(|0|, |0|) = 0$. Thus, when $x = y$, $d(x, y) = 0$.\\
+\noindent If $x = y$, where $x = (x_1, x_2)$ and $y = (y_1, y_2)$ then $x_1 = y_1$ and $x_2 = y_2$. Then
+\begin{align*}
+  d(x, y) &=  max(|x_1 - y_1|, |x_2 - y_2|)\\
+  &= max(|x_1 - x_1|, |x_2 - x_2|)\\
+  &= max(|0|, |0|)\\
+  &= 0\\
+\end{align*}
+Thus, when $x = y$, $d(x, y) = 0$. Conversely, if $d(x, y) = 0$, then this means both $|x_1 - y_1|$ and $|x_2 - y_2|$
+are zero since by definition $|a - b| \geq 0$. Thus, if one of  $|x_1 - y_1|$ or $|x_2 - y_2|$ were not 0, the distance would be greater than 0. Thus, $x_1 = y_1$ and $x_2 = y_2$
+and hence $x = y$.\\
 \\
 \noindent\textbf{Case 2: $x \neq y$}
 
@@ -70,7 +78,7 @@ Then one of the arguments in max$(|x_1 - y_1|, |x_2 - y_2|)$ is zero, however th
 Conversely, if neither $x_k = y_k, k = 1, 2$ then both differnces will be greater than zero, and therefore the distance will be greater than 0 regardless of which one had the greater difference.
 Hence, $d(x, y) \geq 0, d(x, y) = 0 \iff x = y$.\\
 \\
-For the next property, let x and y be as above.\\
+For the next property, let $x$ and $y$ be as above.\\
 
 \noindent Then $d(x, y) = $ max$(|x_1 - y_1|, |x_2 - y_2|)$. Suppose $x_1 - y_1 = n$ and $x_2 - y_2 = m$. Then $y_1 - x_1 = -n$ and $y_2 - x_2 = -m$.
 However
@@ -102,7 +110,7 @@ Which imples that $x - y = 2^n \cdot r$ where $r$ is odd and $2^n$ is the larges
 \end{align*}
 Hence, $2^n$ also divides $y - x$ and still is the largest $2^n$ that divides them since $-r$ is odd. Hence, $d(y, x) = d(x, y)$.\\
 \\
-To prove the triangle inequality however proves a bit more complex. If any two or more of the three points are the same it trivial to see that the triangle inequality is upheld.
+To prove the triangle inequality however is a little bit more complex. If any two or more of the three points are the same it trivial to see that the triangle inequality is upheld.
 One must consider two cases when all three points are distinct:\\
 \\
 \noindent\textbf{Case 1:} Suppose $d(x, y) = \frac{1}{2^n}$ and $d(y, z) = \frac{1}{2^m}$ where $n \neq m$. Then either $n > m$ or $n < m$. Without loss of generality, assume $m > n$.
@@ -133,14 +141,14 @@ Let $(X, d)$ be a metric space. The closed ball centered at $x$ and of radius $r
 Prove that the intersection taken over all closed sets $F$ containing $E$ is the closure of $E$, $\bar E$; and in particular $\bar E$ is closed.
 \begin{proof}
   To begin, because this is an intersection of of closed sets, the intersection is closed i.e. it contains all of its limit points.
-  Note that all the limit points of $E$ are limit points of the intersection as well. This is because each neighborhood of any $x \in \bar E \setminus E$ is nonempty, and since each set contains
+  Note that all the limit points of $E$ are limit points of the intersection as well. This is because each neighborhood of any $x \in \bar E$ is nonempty, and since each set contains
   $E$, the intersection of any neighborhood of $x$ and that set $F$ must also be nonempty. Hence, they are limit points of $F$ and since $F$ is closed, that point must be in every $F$.
   Therefore, the intersection must contain $\bar E$.\\
   \\
   Next, consider any member of the intersection of closed sets that contain $E$. It is already known that the intersection contains all points and limit points of $E$. Consider a point $j$
   in the intersection that is \textit{not} in $\bar E$. Then it must be a point in a closed set $F$ that $\bar E$ is a proper subset of. Let $s$ be the minimum distance from $j$ to any
   point in $\bar E$. Then take the open ball $B$ centered about $j$ with a radius of $\frac{s}{2}$ and subtract it from $F$. Call this new set $F'$. Evidently, $F'$ is closed as
-  $F \setminus B = F \cap B^c$. But $B^c$ is closed since $B$ is open, and a finite intersection of closed sets is also closed. Further, $F'$ does not contain $j$ and contains
+  $F \setminus B = F \cap B^c$. But $B^c$ is closed since $B$ is open, and a countable intersection of closed sets is also closed. Further, $F'$ does not contain $j$ and contains
   $\bar E$ as for any $x \in \bar E, d(x, j) \geq s > \frac{s}{2}$ and thus is not part of the open ball subtracted from $F$. Thus, for every $j$ not in $\bar E$, one can find a
   closed set that contains $E$ but does not contain $j$. Therefore any member of the intersection must be a member of $\bar E$.\\
   \\
@@ -158,7 +166,9 @@ Assume a metric space $X$ contains a countable subset $X_0$ such that the closur
   \\
   Let $A$ be an open set in $X$. Then $\forall a\in A, \exists B(a, r)$ where $r$ is rational. Although there is no gurantee that $a \in X_0$, because by definition $X$ is a dense set,
   there is some $b$ in any open ball about $a$ that is in $X_0$. Let $b \in B(x, \frac{r}{2})$. Then $B(b, \frac{r}{2})$ is in $B(x, r)$ since for any $c \in B(b, \frac{r}{2}), d(c, b) < \frac{r}{2}$
-  and $d(b, x) < \frac{r}{2}$ and then $\frac{r}{2} + \frac{r}{2} = r > d(c, b) + d(b, x) \geq d(c, x) $, $c$ must be in $B(x, r)$. And if $B(b, \frac{r}{2}) \subseteq B(x, r) \subseteq A$, then $B(b, \frac{r}{2})$ is in $A$.
+  and $d(b, x) < \frac{r}{2}$ and then
+  $$\frac{r}{2} + \frac{r}{2} = r > d(c, b) + d(b, x) \geq d(c, x) $$
+  So $c$ must be in $B(x, r)$. And if $B(b, \frac{r}{2}) \subseteq B(x, r) \subseteq A$, then $B(b, \frac{r}{2})$ is in $A$.
   Hence, the collection of balls centered at $x \in X_0$ with rational radii is a base for $X$ since this can be done for any point in $A$.
 
   Thus, since the balls centered at $x \in X_0$ with rational radii are both countable and form a base of $X$, they must be a countable base for $X$.
@@ -167,25 +177,25 @@ Assume a metric space $X$ contains a countable subset $X_0$ such that the closur
 \section*{Question 6}
 Show that a convex set in $\mathbb{R}^2$ is connected.
 \begin{proof}
-  This is most easily shown as a proof by contrapositive. Let a set $S$ in $\mathbb{R}^2$ be disconnected. then
+  This is most easily shown as a proof by contrapositive. Let a set $S$ in $\mathbb{R}^2$ be disconnected. Then
   $$ S = A \cup B $$
   where $A$ and $B$ are seperate, i.e. neither contains any element of the other nor their limit points. Then take any segment from $[a, b]$ with $a \in A$ and $b \in B$.
   Then consider two different cases:\\
   \\
   \noindent\textbf{Case 1:} $A$ and $B$ share at least one limit point
 
-  Then, since $A$ and $B$ are seperate, neither contain those limit points. Let $\alpha$ be a shared limit point between $A$ and $B$. Then by definition, any ball about $\alpha$ with a radius $r$ contains some points
-  in $A$ and $B$. Then one can find some $(a_1, a_2) \in A$ and $(b_1, b_2) \in B$ such that $a_1 - \alpha = \alpha - b_1$ and $a_2 - \alpha = \alpha - b_2$  (or vice versa) due to the symmetric shape of the ball. Then that segment
-  $[(a_1, a_2), (b_1, b_2)]$ would contain $\alpha$, but $\alpha$ is in neither $A$ nor $B$, hence these sets are not convex.\\
+  Then, since $A$ and $B$ are seperate, neither contain those shared limit points. Let $\alpha$ be a shared limit point between $A$ and $B$. Then by definition, any ball about $\alpha$ with a radius $r$ contains some points
+  in $A$ and $B$. Then one can find some $(a_1, a_2) \in A$ and $(b_1, b_2) \in B$ in the ball such that $a_1 - \alpha = \alpha - b_1$ and $a_2 - \alpha = \alpha - b_2$  (or vice versa) due to the symmetric shape of the ball. Then that segment
+  $[(a_1, a_2), (b_1, b_2)]$ would contain $\alpha$, but $\alpha$ is in neither $A$ nor $B$, hence these $S$ not convex\\
   \\
   \noindent\textbf{Case 2:} $A$ and $B$ share no limits points.
 
   Without loss of generality, take any ball centered about some $a \in A$ with radius $r$. Then increase the ball's radius until for some limit point of $A$ called $\alpha$, $d(a, \alpha) = r$.
   This is the nearest limit point to $a$, and the ball is contained in $A$ since all other limit points have a distance greater than or equal to $r$.
-  No matter what $\alpha$ is not a limit point of b, there is some $s$ such that $B(\alpha, s) \cap B = \emptyset$. Because of the symmetrical shape of the ball,
-  one of the line segments of length $s$ from $\alpha$ is colinear to the line segment from $[a, \alpha]$. But clearly the union of those two line segments contains elements in neither $A$ nor $B$ as
-  the extention of the segement with length $s$ contains no points of $B$, but also passes the limit point $\alpha$, it contains points that are not in $A$ either.
-  This shows that any line segment drawn from any point in $A$ or $B$ will contain elements in neither set. Hence, $A$ and $B$ cannot be convex.
+  $\alpha$ is not a limit point of b, so there is some $s$ such that $B(\alpha, s) \cap B = \emptyset$. Because of the symmetrical shape of the ball,
+  one of the line segments of length $s$ from $\alpha$ in the ball is colinear to the line segment from $[a, \alpha]$. But clearly the union of those two line segments contains elements in neither $A$ nor $B$ as
+  the extention of the segement with length $s$ contains no points of $B$, but also passes the limit point $\alpha$, so it contains points that are not in $A$ either.
+  This shows that any line segment drawn from any point in $A$ or $B$ will contain elements in neither set. Hence, $S$ cannot be convex.
 \end{proof}
 
 \end{document}
