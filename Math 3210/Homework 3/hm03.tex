@@ -41,7 +41,7 @@ $$ \lim_{n\to\infty} x_n^2 = x^2 $$
 \noindent\textbf{Part 2:}
 
 \noindent By what was given, one need not consider the cases where $x \leq 0$. If $x > 0$ then there exists an $N$ such that if $m \geq N$, $|x_m - x| < \varepsilon\sqrt{x}$. Then, because this is over positive real numbers,
-$$ |\sqrt{x_m} - \sqrt{x}| = \frac{|x_m - x|}{\sqrt{x_m} + \sqrt{x}} < \frac{|x_m - x|}{\sqrt{x}} < \frac{\varepsilon\sqrt{x}}{\sqrt{x}} = \varepsilon $$
+$$ |\sqrt{x_m} - \sqrt{x}| = \frac{|x_m - x|}{|\sqrt{x_m} + \sqrt{x}|} < \frac{|x_m - x|}{\sqrt{x}} < \frac{\varepsilon\sqrt{x}}{\sqrt{x}} = \varepsilon $$
 Thus $\lim_n \sqrt{x_n}= \sqrt{x}$.\qed
 
 \pagebreak
@@ -83,6 +83,24 @@ Prove that the following two series are Cauchy. One of them is convergent (find 
 \item $\sum_{n=0}^{\infty} 2^n$
 \item $\sum_{n=0}^{\infty} (-2)^n$
 \end{itemize}
+
+\noindent To begin, let $s$ denote the first series as $s$, and let $r$ denote the second. Consider two nonequal partial sums $s_n$, and $s_m$. Then,
+\begin{align*}
+  s_n &= 2^0 + 2^1 + \cdots + 2^n \\
+  s_m &= 2^0 + 2^1 + \cdots + 2^m \\
+\end{align*}
+Without loss of generality, assume $m > n$. Then,
+\begin{align*}
+  s_m - s_n &= 2^{n + 1} + \cdots + 2^m \\
+  &= 2^{n + 1}(1 + 2^1 + \cdots + 2^{m - n - 1})
+\end{align*}
+Thus the differences between any two nonequal partial sums of degrees $m$ and $n$ with $m > n$ is $\frac{1}{2^{n+1}}$. If $n = m$ then the distance is zero, by definition.
+One can easily see that the same is true for $r$ by simply replacing any $2$ in the steps above with $(-2)$.
+\par With this is it very straightforward to show that both series are
+Cauchy. Given any $\varepsilon > 0$ one can find a $\frac{1}{2^j}$ such that $0 < \frac{1}{2^j} < \varepsilon$ but $\varepsilon \leq \frac{1}{2^{j + 1}}$.
+Without loss of generality, take any partial some of degree $k \geq j - 1$ of $s$, then
+$$d(s_k, s_j) = \frac{1}{2^{k + 1}} \leq \frac{1}{2^j} < \varepsilon$$
+It is very easy to see that this is equally true for $r$. Hence, both series are Cauchy.\qed
 
 \section*{Question 4}
 \section*{Question 5}
