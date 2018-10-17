@@ -123,7 +123,7 @@ Let $c_n$ be a sequence of positive numbers. Prove that
   $$ \sqrt[m]{c_m} \geq \sqrt[m]{\frac{c_N}{B^N}B^m} $$
   However note that $\frac{c_N}{B^N}$ is constant, so as $m$ increases, the value of that quotient approaches 1, so we then have
   $$ \sqrt[m]{c_m} \geq \sqrt[m]{\frac{c_N}{B^N}B^m} \to \sqrt[m]{B^m} = B$$
-  Thus for all $\alpha > B$, $\alpha' \geq B$. This implies that $\alpha' \geq \alpha$. In other words,
+  Thus for all $B < \alpha$, $\alpha' \geq B$. This implies that $\alpha' \geq \alpha$. In other words,
   \[
   \mathrm{liminf}_n \sqrt[n]{c_n} \geq \mathrm{liminf}_n \frac{c_{n+1}}{c_n}.
   \]
@@ -147,7 +147,7 @@ Let $Y$ be a non-empty set and $d: Y \times Y\rightarrow [0, \infty)$ a ``distan
 \item $d(x,z) \leq d(x,y) + d(y,z)$ for all $x,y,z\in Y$.
 \end{itemize}
 In words, $d$ is almost a distance function, however, $d(x,y)=0$ is allowed for different $x$ and $y$. We say that $x$ and $y$ are
-equivalent if $d(x,y)=0$. Prove that this is an equivalence relation. Prove that, if $x$ is equivalent to $y$ then $d(x,z)=d(y,z)$ for all $z\in Y$. 
+equivalent if $d(x,y)=0$. Prove that this is an equivalence relation. Prove that, if $x$ is equivalent to $y$ then $d(x,z)=d(y,z)$ for all $z\in Y$.
 
 
 
