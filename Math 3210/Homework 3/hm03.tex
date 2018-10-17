@@ -84,7 +84,7 @@ Prove that the following two series are Cauchy. One of them is convergent (find 
 \item $\sum_{n=0}^{\infty} (-2)^n$
 \end{itemize}
 
-\noindent To begin, let $s$ denote the first series as $s$, and let $r$ denote the second. Consider two nonequal partial sums $s_n$, and $s_m$. Then,
+\noindent To begin, let $s$ denote the first series, and let $r$ denote the second. Consider two nonequal partial sums $s_n$, and $s_m$. Then,
 \begin{align*}
   s_n &= 2^0 + 2^1 + \cdots + 2^n \\
   s_m &= 2^0 + 2^1 + \cdots + 2^m
@@ -105,13 +105,49 @@ It is very easy to see that this is equally true for $r$. Hence, both series are
 \noindent Although both are Cauchy, only $s$ is convergent, and it converges to -1. The reason is through considerations of the limit of the similar sequence $\lim_{n\to\infty} 2^n$.
 One sees that the distance between 0 and any $2^n$ is $\frac{1}{2^n}$ since 0 is divisible by any integer. Hence,
 $$ \lim_{n\to\infty} d(0, 2^n) = \lim_{n\to\infty} \frac{1}{2^n} = 0$$
-Thus $\lim_{n\to\infty} 2^n = 0$
-
+Thus $\lim_{n\to\infty} 2^n = 0$ and since any partial sum of $s, s_n = 2^{n+1} - 1$,
+$$\lim_{n\to\infty} s_n = \lim_{n\to\infty} 2^{n + 1} - 1 = 0 - 1 = -1$$
+The other series does not converge because its partial sums do not approach a single point.
 
 \section*{Question 4}
+Let $c_n$ be a sequence of positive numbers. Prove that
+\[
+\mathrm{liminf}_n \frac{c_{n+1}}{c_n} \leq \mathrm{liminf}_n \sqrt[n]{c_n}.
+\]
+\begin{proof}
+  Let $\alpha'= \mathrm{liminf}_n \sqrt[n]{c_n}$ and $\alpha = \mathrm{liminf}_n \frac{c_{n+1}}{c_n}$. Also let $B$ be an arbitrary positive number such that $B < \alpha$ and let $z_m = \mathrm{liminf}_{m \geq n} \frac{c_{m+1}}{c_m}$. Then $\exists N$ such that $z_N \geq B$ for all $m \geq N$. In other words we have,
+  $$ B < \frac{c_{N + 1}}{c_N}, B < \frac{c_{N + 2}}{c_{N + 1}}, \cdots, B \leq \frac{c_{m + 1}}{c_m}$$
+  Or,
+  $$ c_{N+1} \geq Bc_N, c_{N+2} \geq B^2c_N, \cdots, c_m \geq B^{m - N}c_N $$
+  So then in another form, $c_m \geq \frac{c_N}{B^N}B^m$. Then we also have that
+  $$ \sqrt[m]{c_m} \geq \sqrt[m]{\frac{c_N}{B^N}B^m} $$
+  However note that $\frac{c_N}{B^N}$ is constant, so as $m$ increases, the value of that quotient approaches 1, so we then have
+  $$ \sqrt[m]{c_m} \geq \sqrt[m]{\frac{c_N}{B^N}B^m} \to \sqrt[m]{B^m} = B$$
+  Thus for all $\alpha > B$, $\alpha' \geq B$. This implies that $\alpha' \geq \alpha$. In other words,
+  \[
+  \mathrm{liminf}_n \sqrt[n]{c_n} \geq \mathrm{liminf}_n \frac{c_{n+1}}{c_n}.
+  \]
+\end{proof}
+\pagebreak
+
 \section*{Question 5}
+Let $(X,d)$ be a metric space.  Let $x=\{x_n\}$ and $y=\{y_n\}$ be two Cauchy sequences.
+Prove that the sequence of distances $d(x_n,y_n)$ is a Cauchy sequence of real numbers.
+
+
 \section*{Question 6}
+Let $(X,d)$ be a metric space.  Two Cauchy sequences $x=\{x_n\}$ and $y=\{y_n\}$ are equivalent if for every $\epsilon >0$, there exists $n$ such that
+$d(x_m,y_m ) < \epsilon$ for all $m\geq n$. Prove that this is an equivalence relation.
+
 \section*{Question 7}
+Let $Y$ be a non-empty set and $d: Y \times Y\rightarrow [0, \infty)$ a ``distance'' function such that
+\begin{itemize}
+\item $d(x,x)=0$  for all $x\in Y$.
+\item $d(x,y)=d(y,x)$  for all $x,y\in Y$.
+\item $d(x,z) \leq d(x,y) + d(y,z)$ for all $x,y,z\in Y$.
+\end{itemize}
+In words, $d$ is almost a distance function, however, $d(x,y)=0$ is allowed for different $x$ and $y$. We say that $x$ and $y$ are
+equivalent if $d(x,y)=0$. Prove that this is an equivalence relation. Prove that, if $x$ is equivalent to $y$ then $d(x,z)=d(y,z)$ for all $z\in Y$. 
 
 
 
