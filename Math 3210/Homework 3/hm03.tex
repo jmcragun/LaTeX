@@ -34,8 +34,8 @@ $$ x_n^2 - x^2 = (x_n - x)^2 + 2x(x_n - x) $$
 Where for any given $\varepsilon > 0$ there exists an integer $N$ such that for any $m \geq N$, $|x_m - x| < \sqrt{\varepsilon}$.
 This implies that $|(x_n - x)^2| < \varepsilon$ and therefore $\lim_{n\to\infty} (x_n - x)^2 = 0$. And clearly
 $$\lim_{n\to\infty} 2x(x_n - x) = 2x \cdot 0 = 0$$
-Thus $\lim_{n\to\infty} x_n^2 - x^2 = 0$ and therefore
-$$ \lim_{n\to\infty} x_n^2 = x^2 $$
+Thus $\lim_n x_n^2 - x^2 = \lim_n (x_n - x)^2 + 2x(x_n - x) = 0$ and therefore
+$$ \lim_n x_n^2 = x^2 $$
 \qed
 \\
 \noindent\textbf{Part 2:}
@@ -99,15 +99,15 @@ One can easily see that the same is true for $r$ by simply replacing any $2$ in 
 \par With this is it very straightforward to show that both series are
 Cauchy. Given any $\varepsilon > 0$ one can find a $j$ such that $0 < \frac{1}{2^j} < \varepsilon$ and $\varepsilon \leq \frac{1}{2^{j + 1}}$.
 Without loss of generality, take any partial sum of degree $k > j$ of $s$, then
-$$d(s_k, s_j) = \frac{1}{2^{k + 1}} < \frac{1}{2^j} < \varepsilon$$
-It is very easy to see that this is equally true for $r$. Hence, both series are Cauchy.\qed\\
+$$d(s_k, s_j) = \frac{1}{2^{j + 1}} < \varepsilon$$
+It is very easy to see that the statement above is equally true for $r$. Hence, both series are Cauchy.\qed\\
 
 \noindent Although both are Cauchy, only $s$ is convergent, and it converges to -1. The reason is through considerations of the limit of the similar sequence $\lim_{n\to\infty} 2^n$.
 One sees that the distance between 0 and any $2^n$ is $\frac{1}{2^n}$ since 0 is divisible by any integer. Hence,
 $$ \lim_{n\to\infty} d(0, 2^n) = \lim_{n\to\infty} \frac{1}{2^n} = 0$$
 Thus $\lim_{n\to\infty} 2^n = 0$ and since any partial sum of $s, s_n = 2^{n+1} - 1$,
 $$\lim_{n\to\infty} s_n = \lim_{n\to\infty} 2^{n + 1} - 1 = 0 - 1 = -1$$
-The other series does not converge because its partial sums do not approach a single point.
+The other series $r$ does not converge because the valuations of its partial sums do not tend to $+\infty$ or eventually stabilize to some constant sequence.
 
 \section*{Question 4}
 Let $c_n$ be a sequence of positive numbers. Prove that
@@ -116,12 +116,12 @@ Let $c_n$ be a sequence of positive numbers. Prove that
 \]
 \begin{proof}
   Let $\alpha'= \mathrm{liminf}_n \sqrt[n]{c_n}$ and $\alpha = \mathrm{liminf}_n \frac{c_{n+1}}{c_n}$. Also let $B$ be an arbitrary positive number such that $B < \alpha$ and let $z_m = \mathrm{liminf}_{m \geq n} \frac{c_{m+1}}{c_m}$. Then $\exists N$ such that $z_N \geq B$ for all $m \geq N$. In other words we have,
-  $$ B < \frac{c_{N + 1}}{c_N}, B < \frac{c_{N + 2}}{c_{N + 1}}, \cdots, B \leq \frac{c_{m + 1}}{c_m}$$
+  $$ B \leq \frac{c_{N + 1}}{c_N}, B \leq \frac{c_{N + 2}}{c_{N + 1}}, \cdots, B \leq \frac{c_{m + 1}}{c_m}$$
   Or,
   $$ c_{N+1} \geq Bc_N, c_{N+2} \geq B^2c_N, \cdots, c_m \geq B^{m - N}c_N $$
   So then in another form, $c_m \geq \frac{c_N}{B^N}B^m$. Then we also have that
   $$ \sqrt[m]{c_m} \geq \sqrt[m]{\frac{c_N}{B^N}B^m} $$
-  However note that $\frac{c_N}{B^N}$ is constant, so as $m$ increases, the value of that quotient approaches 1, so we then have
+  However note that $\frac{c_N}{B^N}$ is constant, so as $m$ increases, the value of the $m$-th root of the quotient approaches 1, so we then have
   $$ \sqrt[m]{c_m} \geq \sqrt[m]{\frac{c_N}{B^N}B^m} \to \sqrt[m]{B^m} = B$$
   Thus for all $B < \alpha$, $\alpha' \geq B$. This implies that $\alpha' \geq \alpha$. In other words,
   \[
@@ -134,11 +134,41 @@ Let $c_n$ be a sequence of positive numbers. Prove that
 Let $(X,d)$ be a metric space.  Let $x=\{x_n\}$ and $y=\{y_n\}$ be two Cauchy sequences.
 Prove that the sequence of distances $d(x_n,y_n)$ is a Cauchy sequence of real numbers.
 
-
+\begin{proof}
+  Since $\{x_n\}$ and $\{y_n\}$ are both Cauchy, it is true that for any $\varepsilon > 0$, $\exists N$ such that $d(x_n, x_m) < \frac{\varepsilon}{2}$ for all $m \geq N$ (and likewise for $\{y_n\}$).
+  Then because $X$ is a metric space,
+  \begin{align}
+    d(x_n, y_n) &\leq d(x_n, x_m) + d(x_m, y_m) + d(y_m, y_n)\\
+    d(x_n, y_n) &< \frac{\varepsilon}{2} + d(x_m, y_m) + \frac{\varepsilon}{2}
+  \end{align}
+  By rearranging $(2)$ we get
+  $$ d(x_n, y_n) -  d(x_m, y_m) < \varepsilon $$
+  And by multiplying $(1)$ by -1 and rearranging, we find that
+  $$ d(x_m, y_m) - d(x_n, y_n) > -\varepsilon $$
+  Which implies that
+  $$ |d(x_n, y_n) -  d(x_m, y_m)| < \varepsilon $$
+  And since this is the standard distance formula for the real numbers, this shows that the sequence of distances $d(x_n,y_n)$ is a Cauchy sequence in $\mathbb{R}$.
+\end{proof}
+\pagebreak
 \section*{Question 6}
 Let $(X,d)$ be a metric space.  Two Cauchy sequences $x=\{x_n\}$ and $y=\{y_n\}$ are equivalent if for every $\epsilon >0$, there exists $n$ such that
-$d(x_m,y_m ) < \epsilon$ for all $m\geq n$. Prove that this is an equivalence relation.
+$d(x_m,y_m) < \epsilon$ for all $m\geq n$. Prove that this is an equivalence relation.
 
+\begin{proof}
+  Since $X$ is a metric space, $d(x, x) = 0$ with any $x \in X$. Hence for any sequence $\{x_n\}$
+  $$ d(x_m, x_m) = 0 < \varepsilon$$
+  Thus $\{x_n\}$ is equivalent to itself, and thus the relation is reflexive. Next, suppose a sequence $x=\{x_n\}$ was equivalent to another sequence $y=\{y_n\}$.
+  Then since $X$ is a metric space,
+  $$ d(y_m,x_m) = d(x_m, y_m)< \epsilon $$
+  Hence $y$ is equivalent to $x$ and is therefore a symmetric relation. Now suppose a sequence $x=\{x_n\}$ was equivalent to another sequence $y=\{y_n\}$ and suppose that
+  $y$ was equivalent to another sequence $z=\{z_n\}$. Then there exists an $N_1, N_2$ such that $d(x_m, y_m) < \frac{\varepsilon}{2}$ and $d(y_m, z_m) < \frac{\varepsilon}{2}$ for $m \geq max(N_1, N_2)$. Then since $X$ is a metric space,
+  \begin{align*}
+    d(x_m, z_m) &\leq d(x_m, y_m) + d(y_m, z_m)\\
+    d(x_m, z_m) &< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+  \end{align*}
+  therefore $x$ and $z$ are also equivalent and the relation is transitive. Since the reltaion is reflexive, symmetric, and transitive, the relation defines an equivalence relation.
+\end{proof}
+\pagebreak
 \section*{Question 7}
 Let $Y$ be a non-empty set and $d: Y \times Y\rightarrow [0, \infty)$ a ``distance'' function such that
 \begin{itemize}
@@ -147,8 +177,21 @@ Let $Y$ be a non-empty set and $d: Y \times Y\rightarrow [0, \infty)$ a ``distan
 \item $d(x,z) \leq d(x,y) + d(y,z)$ for all $x,y,z\in Y$.
 \end{itemize}
 In words, $d$ is almost a distance function, however, $d(x,y)=0$ is allowed for different $x$ and $y$. We say that $x$ and $y$ are
-equivalent if $d(x,y)=0$. Prove that this is an equivalence relation. Prove that, if $x$ is equivalent to $y$ then $d(x,z)=d(y,z)$ for all $z\in Y$.
+equivalent if $d(x,y)=0$. (1) Prove that this is an equivalence relation. (2) Prove that, if $x$ is equivalent to $y$ then $d(x,z)=d(y,z)$ for all $z\in Y$.
 
+\begin{proof}
+  Reflexivity and symmetry are given. All that is left to show is transitivity. Let $x$ be equivalent to $y$ and $y$ be equivalent to $z$. Then,
+  $$ d(x, z) \leq d(x, y) + d(y, z) $$
+  And since $x$ and $y$ are equivalent,
+  $$ d(x, z) \leq 0 + d(y, z) = d(y, z)$$
+  So $d(x, z) \leq d(y, z)$. Now instead consider $d(y, z)$
+  \begin{align*}
+    d(y, z) &\leq d(y, x) + d(x, z)\\
+    &\leq d(x, y) + d(x, z)\\
+    &\leq 0 + d(x, z)
+  \end{align*}
+  So we have $d(x, z) \leq d(y, z)$ and $d(y, z) \leq d(x, z)$. Thus $d(x, z) = d(y, z)$, immediately proving (2). However if $y$ and $z$ are equivalent, then $d(y, z) = 0$. So then in the case above, $d(x, z) = d(y,z) = 0$, meaning that $x$ must be equivalent to $z$, proving transitivity, and therefore that the relation is an equivalence relation.
+\end{proof}
 
 
 
