@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.29)  18 OCT 2018 20:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.29)  28 OCT 2018 13:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -135,18 +135,18 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1] [2] [3] [4] (./SOP_Proposal.aux) ) 
 Here is how much of TeX's memory you used:
- 1246 strings out of 492642
- 14127 string characters out of 6133162
- 77559 words of memory out of 5000000
- 5161 multiletter control sequences out of 15000+600000
- 12434 words of font info for 49 fonts, out of 8000000 for 9000
+ 1222 strings out of 492642
+ 13871 string characters out of 6133162
+ 78559 words of memory out of 5000000
+ 5144 multiletter control sequences out of 15000+600000
+ 8087 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,11n,25p,379b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on SOP_Proposal.pdf (5 pages, 92419 bytes).
+ 28i,11n,25p,628b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on SOP_Proposal.pdf (5 pages, 76954 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 44 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
