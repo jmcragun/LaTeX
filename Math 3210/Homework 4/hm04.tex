@@ -1,0 +1,66 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[scr]{rsfso}
+
+\title{Homework Assignment 4}
+\author{Joshua Cragun \thanks{u1025691} \\ Prof. Gordan Savin, MATH 3210}
+\date{November 2018}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{Question 1}
+Let $f: \mathbb R \rightarrow \mathbb R$ such that $|f(x)-f(y)| \leq (x-y)^2$. Prove that $f$ is constant.
+
+\begin{proof}
+  As given, we have two cases to consider since $f(x)-f(y) \leq (x-y)^2$ and $f(x)-f(y) \geq -(x-y)^2$.\\
+
+  \noindent In the former, we have
+  $$ f'(x) = \lim_{c \to x} \frac{f(c) - f(x)}{c - x} \leq \frac{(c-x)^2}{c-x} = c-x = 0$$
+  \noindent In the latter we have
+  $$ f'(x) = \lim_{c \to x} \frac{f(c) - f(x)}{c - x} \geq \frac{-(c-x)^2}{c-x} = x-c = 0$$
+  So then we have that $f'(x) \geq 0$ and $f'(x) \leq 0$. Hence $f'(x) = 0$, showing that $f$ is constant.
+\end{proof}
+
+\section*{Question 2}
+Let $f$ be a differentiable function defined in a neighborhood of $x$. Assume  that $f''(x)$ exists. Prove that
+\[
+\lim_{h\rightarrow 0} \frac{f(x+h) + f(x-h) -2 f(x)}{h^2} = f''(x).
+\]
+
+\begin{proof}
+
+\end{proof}
+\section*{Question 3 (Fixed Point Theorem)}
+Let $f: \mathbb R \rightarrow \mathbb R$ such that $|f'(x)| \leq C$ for some $0\leq C< 1$ and all $x$.  A number $x$ is a fixed point for $f$ if
+$f(x)=x$. Prove that $f$ cannot have two fixed points.
+Let $x_1$ be any real number, and define
+a sequence by $x_{n+1}=f(x_n)$. Prove that the sequence $\{x_n\}$ is Cauchy.
+\section*{Question 4 (Concavity)}
+Let $f: (\alpha,\beta)  \rightarrow \mathbb R$ be twice differentiable function such that $f''\geq 0$ on the interval. Let $c\in (\alpha,\beta)$ and let $g(x)$ be the linear
+function whose graph is the tangent line of the graph of $f$ at $c$ i.e. $g(x)=f(c) + f'(c)(x-c)$. Prove that $f(x)\geq g(x)$ for $x\in (\alpha,\beta)$.
+\section*{Question 5 (Newton Method)}
+Let $f: \mathbb R \rightarrow \mathbb R$ be twice differentiable function. Let $[a,b]$ be a closed interval such that $f(a) <0$ and $f(b)>0$, $f'(x) \geq \delta>0$,
+and $f''(x)\geq 0$ for $x\in [a,b]$. Prove that there is unique $c\in (a,b)$ such that $f(c)=0$. Define a sequence by $x_1=b$ and
+\[
+x_{n+1} = x_n -\frac{f(x_n)}{f'(x_{n})}
+\]
+Prove that the sequence is decreasing and bounded from below by $c$, it has a limit.
+Prove that the limit is $c$.  Check that the conditions are
+satisfied for $f(x)=x^2-2$ and the interval
+$[1,2]$. What is the limit of the sequence $\{x_n\}$? Compute $x_n$  for $n=1,2,3,4$.
+\section*{Question 6}
+Consider the power series $x-\frac{x^3}{3!} + \frac{x^5}{5!} - \ldots$, i.e. the sequence whose $n$-th term is $(-1)^{n-1}\frac{x^{2n-1}}{(2n-1)!}$. Compute the
+radius of convergence of this series. Use the theorem of Taylor to prove that $\sin(x)=x-\frac{x^3}{3!} + \frac{x^5}{5!} - \ldots$ for every $x$.
+Use this series to find a rational number that approximates $\sin(1/2)$ with an error less than $1/10^3$.
+
+\end{document}
