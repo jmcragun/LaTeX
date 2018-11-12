@@ -38,7 +38,24 @@ Let $f$ be a differentiable function defined in a neighborhood of $x$. Assume  t
 \]
 
 \begin{proof}
-
+  To begin, first consider the derivative for some artbitrary differentiable function $g$.
+  $$ g'(x) = \lim_{c \to x} \frac{g(c) - g(x)}{c - x} = \lim_{c \to x} \frac{g(x + (c - x)) - g(x)}{c - x} $$
+  Hence if one examines the limit intead with respect to $h = (c - x)$ we get
+  $$ g'(x) = \lim_{h \to 0} \frac{g(x + h) - g(x)}{h}$$
+  Then, using this notation instead we have
+  $$ f''(x) = \lim_{h \to 0} \frac{f'(x + h) - f'(x)}{h} $$
+  Where
+  \begin{align*}
+    f'(x + h) &= \lim_{k \to 0} \frac{f(x + h + k) - f(x + h)}{k}\\
+    f'(x) &= \lim_{l \to 0} \frac{f(x + l) - f(x)}{l}
+  \end{align*}
+  So then if we choose $k = l = -h$, we get
+  \begin{align*}
+  f''(x) &= \lim_{h \to 0} \frac{ \frac{f(x) - f(x + h)}{-h} - \frac{f(x - h) - f(x)}{-h} }{h}\\
+  &= \lim_{h \to 0} \frac{ \frac{f(x + h) - f(x)}{h} + \frac{f(x - h) - f(x)}{h} }{h} \\
+  &= \lim_{h \to 0} \frac{f(x+h) + f(x-h) -2 f(x)}{h^2}
+  \end{align*}
+  As was to be shown.
 \end{proof}
 \section*{Question 3 (Fixed Point Theorem)}
 Let $f: \mathbb R \rightarrow \mathbb R$ such that $|f'(x)| \leq C$ for some $0\leq C< 1$ and all $x$.  A number $x$ is a fixed point for $f$ if
