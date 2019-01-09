@@ -1,0 +1,253 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[scr]{rsfso}
+
+\title{Homework Assignment 5}
+\author{Joshua Cragun \thanks{u1025691} \\ Prof. Gordan Savin, MATH 3210}
+\date{December 2018}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{Question 1}
+Let $f: [a,b] \rightarrow \mathbb R$ be a continuous function such that $f\geq 0$. Show that $f=0$ if and only if $\int_a^b f(x) dx=0$.
+
+\begin{proof}
+  First, suppose that $f(x) = 0$. Then evidently, for any $\epsilon > 0, \forall x, y \in [a,b]$, $|f(x) - f(y)| = 0 < \epsilon$. Hence one can define $\delta$ as any value larger than the distance between $x$ and $y$ and satisfy the requirement for continuity. So $f$ is continuous. Then $f$ is also integrable, where
+  $$ \int_{a}^{b}f(x)dx = sup\{L(f,P), P\} = inf\{U(f, P), P\} $$
+  Over all partitions $P = \{ a = x_0 \leq x_1 \leq \cdots \leq x_n = b \}$ where $L$, and $U$ are defined like so:
+  \begin{align*}
+    U(f, P) = \sum_{i=1}^{n} M_i(x_i - x_{i-1})\\
+    L(f, P) = \sum_{i=1}^{n} m_i(x_i - x_{i-1})
+  \end{align*}
+  Where $M_i$ is the local maximum of $f$ on the interval $[x_{i-1}, x_i]$, and $m_i$ is the local minimum of $f$ on the same interval. However then $M_i = m_i = 0$ over all partitions. As a result $U(f, P) = L(f, P) = 0$ over all partitions.
+  So then one can conclude indeed that
+  $$ sup\{L(f,P), P\} = inf\{U(f, P), P\} = 0 = \int_{a}^{b}f(x)dx $$
+  Conversely, let $f$ be as given and suppose that $\int_{a}^{b}f(x)dx = 0$ and $\exists c \in [a,b]$ such that $f(c) > 0$. From the definition of continuity, this implies that $\forall \epsilon > 0$, $\exists \delta > 0$ such that
+  if $|x - c| < \delta$, then $|f(x) - f(c)| < \epsilon$. Then if we take $\epsilon$ to be equal to $\frac{f(c)}{2}$ with the proper $\delta$ we have that for all $x \in [c - \delta, c+\delta]$, $|f(x) - f(c)| < \frac{f(c)}{2}$.
+  This implies that $\frac{f(c)}{2} < f(x) < \frac{3f(c)}{2} $. Hence we have:
+  $$ \int_{a}^{b}f(x)dx \geq \int_{c - \delta}^{c+\delta}f(x)dx > \frac{f(c)}{2} \cdot (2\delta) = \delta f(c) > 0$$
+  This is a contradiction, hence if $f$ meets the requirements above and $\int_{a}^{b}f(x)dx = 0$, then there does not exist a point $c$ such that $f(c) > 0$. We are then left to conclude that $f(x) = 0$.
+\end{proof}
+
+\section*{Question 2}
+Let $f:[0,1]\rightarrow \mathbb R$ be defined by $f(x)=1$ if $x$ is in the Cantor set and $f(x)=0$ otherwise. Prove that $f$ is Riemann integrable and compute its
+integral.
+\begin{proof}
+  First consider the upper bound of $f$. If $f$ is integrable then $\int_{0}^{1}f(x)dx = sup\{L(f,P),P\} = inf\{U(f,P),P\}$ where
+  \begin{align*}
+    U(f, P) = \sum_{i=1}^{n} M_i(x_i - x_{i-1})\\
+    L(f, P) = \sum_{i=1}^{n} m_i(x_i - x_{i-1})
+  \end{align*}
+  Define a sequence of partitions $P_n$ where $n > 0$ corresponds to the $n$-th iteration of the Cantor set as given by its recurisive formula. $P_n$ is provided as follows:
+  $$ P_n = 0 \leq C_{n, 1} + \epsilon \leq C_{n, 2} - \epsilon \leq \cdots C_{n, 2^n-1} + (-1)^{n-1}\epsilon \leq 1$$
+  Where $\epsilon < \frac{1}{2\cdot3^{n-1}}$ (since it is half of the smallest distance between two points in the $n$-th iteration of the cantor set) and $C_{n, m}$ corresponds to the $m$-th point in the set of points in the $n$-th iteration of the Cantor set. Label those points in the same order as $x_0$ to $x_{2^n-1}$ Then we have
+  $$ U(f, P_n) = \sum_{i = 1}^{2^n-1}M_i(x_i-x_{i-1}) = M_1(x_1 - 0) + M_2(x_2 - x_1) + \cdots + M_{2^n-1}(1 - x_{2^n-2})$$
+  Which can be rearranged into the form:
+  $$ U(f, P_n) = 1 - \sum_{i=1}^{2^n-2}(M_i-M_{i+1})x_i $$
+  Since it is known that the first and last $M_i$ will always be 1. This can be further split since $M_i-M_{i+1}$ will be either 1 or -1 depending on $i$. Namely, 1 if $i$ is even, and -1 if $i$ is odd. By splitting the series we obtain:
+  $$ U(f, P_n) = 1 + \sum_{j = 0}^{2^{n-1}-2}x_{2j+1} - \sum{k=1}^{2^{n-1}-1}$$
+  However notice that this is effectively the same as removing the segments that are traditionally removed in each iteration of the Cantor set (plus the epsilons). Further, it is known that ever $\epsilon$ in the second num are all being taken away (since they were even values of $i$), and are being added in the first (which were all odd values of $i$). To demonstrate:
+  $$ 1 - (x_2 - x_1) - (x_4-x_3) - \cdots $$
+  I.e. it is equivalent to the length of the remaining segment after $n$ Cantor iterations, which is $\frac{2}{3}^n$. But also plus the at most $2^n - 2$ epsilons. In other words, if $n > 1$
+  $$ U(f, P_n) = \frac{2}{3}^n + (n-2)\epsilon$$
+  Then we have
+  \begin{align*}
+    &inf\{U(f,P), P\} \leq \lim_{n\to\infty}U(f, P_n) = \lim_{n\to\infty} \bigg(\frac{2}{3}\bigg)^n + (2^n-2)\epsilon\\
+  &< \lim_{n\to\infty} \bigg(\frac{2}{3}\bigg)^n + \frac{2^n-2}{2\cdot3^{n-1}} = \lim_{n\to\infty} \bigg(\frac{2}{3}\bigg)^n + \bigg(\frac{2}{3}\bigg)^{n-1} + \frac{1}{3^{n-1}}
+  \end{align*}
+
+  Which evalutes to 0, implying that $inf\{U(f,P),P\} = 0$. But then it is also known that since the range of $f$ is $0, 1$, so $sup\{L(f,P),P\}$ can be at most 0. Hence $sup\{L(f,P),P\} = inf\{U(f,P),P\} = 0$. This shows that $f$ is integrable, and also that its integral is 0.
+
+\end{proof}
+
+\section*{Question 3}
+Let $V=\mathcal R[a,b]$ the vector space of Riemann integrable functions on $[a,b]$. Prove that
+\[
+||f||=\int_a^b |f(x)| ~dx
+\]
+defines a semi-norm on $V$ i.e. (1)  $||f||\geq 0$ (2) $||\lambda \cdot f || = |\lambda |\cdot ||f||$ (3) $||f + g|| \leq ||f|| + ||g||$ where $f,g\in V$ and
+$\lambda \in \mathbb R$ (a norm satisfies $||f||=0$ implies $f=0$). Give an example of a non-zero function $f\in V$ such that $||f||=0$.
+Let $U=C[a,b]$ be the subspace of continuous functions on $[a,b]$. Prove that $||f||$ is a norm when restricted to $U$.
+\begin{proof}
+  \textbf{(1)} Since $f$ is integrable, we have
+  $$\int_{a}^{b} |f(x)|dx = s = inf \{U(|f(x)|, P), P\} = sup \{L(|f(x)|, P), P\} = S$$
+   where $U$ and $L$ are defined like in Question 1. Since $|f(x)| > 0$ for all $x \in [a, b]$, we have that each $m_i$ in $L(f, P)$ must be greater
+  than or equal to zero. And since each $x_i \leq x_{i+1}$, we have that $L(f, P) \geq 0$ over all valid partitions. Then since $0 \leq L(f, P) \leq U(f, P)$, one can see that both $s$ and $S$ must also be greater than or equal to zero.
+  Hence, $||f(x)|| \geq 0$
+\end{proof}
+\begin{proof}
+  \textbf{(2)} Is a simple matter of the properties of the integral and the absolute value function.
+  $$ ||\lambda f(x)|| = \int_{a}^{b} |\lambda f(x)|dx = \int_{a}^{b} |\lambda| \cdot |f(x)|dx = |\lambda|\int_{a}^{b}|f(x)|dx = |\lambda| \cdot ||f(x)|| $$
+\end{proof}
+\begin{proof}
+  \textbf{(3)} Is likewise a matter of the properties of the integral and the absolute value function.
+  $$ ||f(x) + g(x)|| = \int_{a}^{b}|f(x) + g(x)|dx$$
+  Since $|f(x) + g(x)| \leq |f(x)| + |g(x)|$, so it follows that
+  $$ \int_{a}^{b}|f(x) + g(x)|d \leq \int_{a}^{b}|f(x)| + |g(x)|dx = \int_{a}^{b}|f(x)|dx + \int_{a}^{b}|g(x)|dx =||f(x)|| + ||g(x)||$$
+  Hence $||f(x) + g(x)|| \leq ||f(x)|| + ||g(x)||$
+\end{proof}
+\noindent An excellent example of a nonzero function with a semi-norm of 0 is the characteristic function of the Cantor set on the interval $[0, 1]$, as shown in Question 2. Another example would be a somewhat similar function defined
+like so:
+\[
+z(x)=
+  \begin{cases}
+   1 \text{ for } x = \frac{a + b}{2} \\
+   0 \text{ for } x \neq \frac{a + b}{2}\\
+  \end{cases}
+\]
+All that is needed to show that $||\cdot||$ defines a proper norm on $U$ is to show that $||f(x)|| = 0 \iff f(x) = 0$ whenever $f \in U$. Let $f(x) \in U$ \text{and} $g(x) = |f(x)|$. Since the absolute value of a continuous function is also continuous, it follows that $g(x) \in U$ and $g(x) \geq 0$, in which case it follows that
+$$||g(x)|| = 0 \iff g(x) = 0$$
+As shown in Question 1.
+\section*{Question 4}
+Continuing with notation and setting of the previous exercise. Then $d(f,g)=||f-g||$ defines a semi-distance on $V$ i.e. all axioms of the distance function are
+satisfied except there are $f\neq g$ such that $d(f,g)=0$. To get a metric space one needs to identify all $f$ and $g$ such that $d(f,g)=0$. More precisely,
+we have an equivalence relation $f\sim  g$ if $d(f,g)=0$ and then $\bar V$, the set of equivalence classes, is a proper metric space.
+ On the other hand, $d$ is a proper distance function on $U$ and $U$ naturally embeds into $\bar V$.  Let
+\[
+f_n(x)=
+ \begin{cases} -1  \text{ for } -1\leq x < -1/n \\
+nx  \text{ for } -1/n \leq x \leq 1/n \\
+ 1   \text{ for } 1/n < x \leq 1 \\
+  \end{cases}
+\]
+be a sequence in $U=C[-1,1]$. Prove that $f_n$ is a Cauchy sequence in $U$. It does not have a limit point in $U$, however it does in $\bar V$. Find that limit.
+
+\begin{proof}
+  To begin, one must first consider $d(f_n, f_m) = ||f_n(x) - f_m(x)||$ where $n \neq m$. Without loss of generality, suppose that $n > m$. Then $\frac{1}{m} > \frac{1}{n}$, and we have
+  $$ d(f_n, f_m) = \int_{-1}^{1} |f_n(x) - f_m(x)|dx$$
+  Then there are 4 cases to consider:\\
+  %Consider using limit notation
+  \noindent\textbf{Case 1:} $ \frac{1}{m} < |x| \leq 1$
+
+  \noindent In this case, both $f_n(x)$ and $f_m(x)$ are either exclusively -1 or 1. Hence, the integral on $[-1, -\frac{1}{m})$ and $(\frac{1}{m}, 1]$ is 0 since $f_n(x) = f_m(x)$.\\
+
+  \noindent\textbf{Case 2:} $-\frac{1}{m} \leq x < -\frac{1}{n}$
+
+  \noindent In this case, $f_n(x) = -1$ and $f_m(x) = mx$. Then we have $|-1 - mx| = |-1|\cdot|1 + mx| = |1 + mx|$. Since $mx > -1$, $|1 + mx| = 1 + mx$ on this interval. Then we have:
+  $$ \int_{-\frac{1}{m}}^{-\frac{1}{n}} (1 + mx)dx = \bigg(x + \frac{mx^2}{2}\bigg)\bigg\rvert_{-\frac{1}{m}}^{-\frac{1}{n}} = \bigg(-\frac{1}{n} + \frac{m}{2n^2}\bigg) - \bigg(-\frac{1}{m} + \frac{1}{2m} \bigg) = \frac{1}{2m} + \frac{m}{2n^2} - \frac{1}{n}$$
+
+  \noindent\textbf{Case 3:} $\frac{1}{n} < x \leq \frac{1}{m}$
+
+  \noindent In this case $f_n(x) = 1$ and $f_m(x) = mx$. Since $mx < 1$ on this interval, we can put $|1 - mx| = 1 - mx$. Then we have:
+  $$ \int_{\frac{1}{n}}^{\frac{1}{m}} (1 - mx)dx = \bigg(x - \frac{mx^2}{2}\bigg)\bigg\rvert_{\frac{1}{n}}^{\frac{1}{m}} = \bigg( \frac{1}{m} - \frac{1}{2m}\bigg) - \bigg(\frac{1}{n} - \frac{m}{2n^2}\bigg) = \frac{1}{2m} + \frac{m}{2n^2} - \frac{1}{n}$$
+  So the combined value of cases 2 and 3 is:
+  $$\frac{1}{m} + \frac{m}{n^2} - \frac{2}{n}$$
+  \textbf{Case 4:} $-\frac{1}{n} < x < \frac{1}{n}$
+
+  \noindent In this case $f_n(x) = nx$ and $f_m(x) = mx$. Since $|f_n(x) - f_m(x)| \leq |f_n(x)| + |f_m(x)|$ it is also true that
+  $$\int_{-\frac{1}{n}}^{\frac{1}{n}}|f_n(x) - f_m(x)|dx \leq \int_{-\frac{1}{n}}^{\frac{1}{n}}|f_n(x)| + |f_m(x)|dx$$
+  One can re-write the integral and evaluate it like so:
+  $$ 2\bigg(\int_{0}^{\frac{1}{n}} (nx + mx)dx \bigg) = 2\bigg(\frac{1}{2n} + \frac{m}{2n^2}\bigg) = \frac{1}{n} + \frac{m}{n^2}$$
+  Since for every $x \in [0, \frac{1}{n}]$, $\exists y \in [-\frac{1}{n}, 0]$ such that $|ny| = nx$ and $|my| = mx$, namely $y = -x$. So, overall we have:
+  \begin{align*}
+    d(f_n(x), f_m(x)) &= \int_{-1}^{1}|f_n(x) - f_m(x)|dx = \\
+     \int_{-1}^{-\frac{1}{m}}|f_n(x) &- f_m(x)|dx + \int_{-\frac{1}{m}}^{-\frac{1}{n}}|f_n(x) - f_m(x)|dx + \int_{-\frac{1}{n}}^{\frac{1}{n}}|f_n(x) - f_m(x)|dx  \\
+    &+ \int_{\frac{1}{n}}^{\frac{1}{m}}|f_n(x) - f_m(x)|dx + \int_{\frac{1}{m}}^{1}|f_n(x) - f_m(x)|dx \\
+    & = 0 + \frac{1}{m} + \frac{m}{n^2} - \frac{2}{n} + \int_{-\frac{1}{n}}^{\frac{1}{n}}|f_n(x) - f_m(x)|dx \\
+    & \leq \frac{1}{m} - \frac{1}{n} + \frac{2m}{n^2}
+  \end{align*}
+  However, since $n > m$, we have $\frac{1}{m} > \frac{1}{n}$. Hence $-\frac{1}{n}$ can be bounded above by $\frac{1}{m}$. making the substitution we have
+  $$ \frac{1}{m} - \frac{1}{n} + \frac{2m}{n^2} < \frac{1}{m} + \frac{1}{m} + \frac{2m}{m^2} = \frac{4}{m}$$
+  Hence, given any $\epsilon > 0$, if we define some $N \in \mathbb{N}$ as any integer greater than or equal to $\frac{4}{\epsilon}$ we have:
+  \begin{align*}
+    d(f_n(x), f_m(x)) &= \int_{-1}^{1}|f_n(x) - f_m(x)|dx \\
+    &\leq \frac{1}{m} - \frac{1}{n} + \frac{2m}{n^2}\\
+    &< \frac{4}{m}\\
+    &\leq \frac{4}{N} \leq{4}{\frac{4}{\epsilon}} = \epsilon
+  \end{align*}
+  As long as $n > m \geq N$. By definition then, the sequence must be Cauchy. The limit $f(x)$ of this sequence is
+  \[
+  f(x)=
+   \begin{cases} -1  \text{ for } -1 \leq x < 0 \\
+  \text{undefined for } x = 0 \\
+   1   \text{ for } 0 < x \leq 1 \\
+    \end{cases}
+  \]
+
+\end{proof}
+\section*{Question 5}
+Let $f: [1,\infty)\rightarrow \mathbb R$ be a non-negative function such that $f$ is integrable on the closed segment $[1,c]$ for every $c\geq 1$. One can define
+$\int_{1}^{\infty} f(x) ~dx$ as the supremum of $\int_{1}^{c} f(x) ~dx$ over all $c$.
+Assume that $f$ is monotone decreasing. Prove that $\int_{1}^{\infty} f(x) ~dx$ is finite
+if and only $\sum_{n=1}^{\infty} f(n)$ converges.  Apply this to prove that the series $\sum_{n=1}^{\infty} n^{-s}$ for $s>0$ is convergent if and only if $s>1$.
+\begin{proof}
+  First suppose that $\int_{1}^{\infty}f(x)dx$ is finite. Consider the sum
+  $$ \sum_{n=1}^{c}f(n) = f(1) + f(2) + f(3) + \cdots $$
+  Since the $\int dx$ on any segment of length one is equal to one, this is equivalent to:
+  $$ f(1) + \int_{1}^{2}f(2)dx + \int_{2}^{3}f(3)dx + \cdots $$
+  And since the function is monotone decreasing, the expression above is less than or equal to
+  $$ f(1) + \int_{1}^{2}f(x)dx + \int_{2}^{3}f(x)dx + \cdots = f(1) + \int_{1}^{c}f(x)dx$$
+  Hence
+  $$ \sum_{n=1}^{\infty}f(n)= \lim_{c\to\infty}\sum_{n=1}^{c}f(n) \leq \lim_{c\to\infty} f(1) + \int_{1}^{c}f(x)dx = f(1) + \int_{1}^{\infty}f(x)dx$$
+  And as a result
+  $$ \sum_{n=1}^{\infty}f(n) \leq f(1) + \int_{1}^{\infty}f(x)dx $$
+  But $\int_{1}^{\infty}f(x)dx$ is finite, so $\sum_{n=1}^{\infty}f(n)$ must also be finite i.e, convergent.\\
+
+  \noindent Conversely, suppose that $\sum_{n=1}^{\infty}f(n)$ converges.
+  From the definition of the integral of $f$, we have:
+  $$ \int_{1}^{c}f(x)dx = \text{inf}\{U(f, P), P\} $$
+  In other words, the infimum of the upper sums of $f$ over all possible partitions. Suppose $c$ is an integer. Define some partition $P^*$ as the partition consisting of integer points from 1 to $c$, i.e. $1 \leq 2 \leq \cdots \leq c$. Then by definition,
+  $$ \text{inf}\{U(f, P), P\} \leq U(f, P^*) $$
+  Where
+  $$U(f, P^*) = \sum_{i=1}^{c-1}M_i(x_i - x_{i-1})$$
+  Where $x_0 = 1$, $x_1 = 2,$ ... $x_{c-1} = c$. Since $c$ is an integer, $x_i - x_{i-1} = 1$ over all $i$. Then all that is left is
+  $$  \sum_{i=1}^{c-1}M_i $$
+  Where $M_i$ is the local maximum of $f$ on the interval $[x_{i-1}, x_i]$. However, because $f$ is monotone decreasing $M_i = f(x_{i-1})$. So
+  $$ \sum_{i=1}^{c-1}M_i = \sum_{i=1}^{c-1}f(x_{i-1}) = \sum_{i=1}^{c-1}f(i) $$
+  And since, for any real number $r$, one can always find some integer $s$ such that $s > r$, we can say that
+  $$\text{sup}\int_{1}^{c} f(x) ~dx = \lim_{c\to\infty}\int_{1}^{c} f(x) ~dx \leq \sum_{i=1}^{c-1}f(i) \leq \sum{i=1}^{\infty}f(i)$$
+  Where $\sum{i=1}^{\infty}f(i)$ is convergent. Hence, the integral must also be finite.
+\end{proof}
+Now to show that $\sum_{n=1}^{\infty} n^{-s}$ for $s>0$ is convergent if and only if $s>1$.
+\begin{proof}
+  There are two cases:\\
+
+  \noindent\textbf{Case 1:} $s \leq 1$
+  If $n > m$ then $x^n > x^m$. Then $\frac{1}{x^m} > \frac{1}{x^n}$. This means that if $0< s < 1$, then $\frac{1}{n^s} \geq \frac{1}{n}$ since $n \geq n^s$. By extention, this means that if $0< s < 1$ then
+  $$ \int_{1}^{\infty} \frac{1}{n^s} ~dn \geq \int_{1}^{\infty} \frac{1}{n} ~dn$$
+  It then suffices to show that $\int{1}^{\infty}\frac{1}{n} ~dn$ is infinite given what was just proven. To do so, is simple.
+  $$\int_{1}^{\infty}\frac{1}{n} ~dn = \ln{n}\bigg\rvert_{1}^{\infty} = \infty$$
+  Hence the integral is not finite, implying the series $\sum_{n=1}{\infty}\frac{1}{n}$ is not convergent.
+
+  \noindent\textbf{Case 2:} $s > 1$
+  For very similar reasons as in case 1, it suffices to show that $\int_{1}^{\infty}n^{-s}$ is finite for $s>1$.
+  $$\int_{1}^{\infty} n^{-s} ~dn = -s(n^{-s -1})\bigg\rvert_{1}^{\infty} = -\frac{s}{n^{s - 1}}\bigg\rvert_{1}^{\infty}$$
+  However since $s > 1$, $n^{s - 1}$ is increasing. So,
+  $$-\frac{s}{n^{s - 1}}\bigg\rvert_{1}^{\infty} = -\frac{s}{\infty^{s-1}} + \frac{s}{1^{s-1}} = 0 + s$$
+  And since $s$ is finite, this implies that $\sum_{n=1}{\infty}n^{-s}$ is convergent.
+\end{proof}
+\section*{Question 6}
+Let $(X,d)$ be a metric space and $f_n$ a sequence of continuous functions  $f_n : X \rightarrow \mathbb R$ uniformly converging to $f$. Let $x_n$ be a
+sequence of points in $X$ such that $\lim_n x_n=x\in X$. Prove that $\lim_n f_n(x_n)=f(x)$ .
+
+\begin{proof}
+  Since each $f_n$ is continuous and uniformly converges to $f$, one knows that $f$ is also continuous. It follows that
+  $$ \lim_n f(x_n)  = f(\lim_n x_n) = f(x)$$
+  This implies that over all $\epsilon > 0$ there exists some $n$ greater than or equal to some $N_1 \in \mathbb{N}$,
+  $$ |f(x_n) - f(x)| < \frac{\epsilon}{2} $$
+  And since $f_n$ is uniformly convergent to $f$, it is also true that
+  $$ |f_m(x_n) - f(x_n)| < \frac{\epsilon}{2} $$
+  For some $n \geq N_2 \in \mathbb{N}$. Then, if $n$ is taken to be greater than or equal to the maximum of $N_1 \text{and} N_2$ for $\epsilon > 0$ we have:
+  \begin{align*}
+    |f_n(x_n) - f(x)| &= |f_n(x_n) - f(x_n) + f(x_n) - f(x)| \\
+    & \leq |f_n(x_n) - f(x_n)| + |f(x_n) - f(x)| \\
+    &< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+  \end{align*}
+  In other words,
+  $$|f_n(x_n) - f(x)| \text{ or } d(f_n(x_n), f(x)) < \epsilon$$
+  \noindent This proves that $\lim_n f_n(x_n)=f(x)$.
+
+\end{proof}
+
+
+\end{document}

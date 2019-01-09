@@ -1,0 +1,77 @@
+\documentclass[11pt]{amsart}
+\usepackage{amscd,amssymb}
+\theoremstyle{plain}
+\newtheorem{Thm}[equation]{Theorem}
+\newtheorem{Cor}[equation]{Corollary}
+\newtheorem{Prop}[equation]{Proposition}
+\newtheorem{Lem}[equation]{Lemma}
+\newtheorem{Def}[equation]{Definition}
+\numberwithin{equation}{section}
+
+\setlength{\oddsidemargin}{0.2in}
+\setlength{\evensidemargin}{0.2in}
+\setlength{\textwidth}{6.1in}
+
+\begin{document}
+
+
+
+\title{ Math 3210-4,  HW V}
+\maketitle
+\vskip 10pt 
+\noindent 
+1)  Let $f: [a,b] \rightarrow \mathbb R$ be a continuois function such that $f\geq 0$. Show that $f=0$ if and only if $\int_a^b f(x) dx=0$. 
+
+
+
+\vskip 10pt 
+\noindent 
+2)  Let $f:[0,1]\rightarrow \mathbb R$ be defined by $f(x)=1$ if $x$ is in the Cantor set and $f(x)=0$ otherwise. Prove that $f$ is Riemann integrable and compute its 
+integral. 
+
+
+\vskip 10pt 
+\noindent 
+3) Let $V=\mathcal R[a,b]$ the vector space of Riemann integrable functions on $[a,b]$. Prove that 
+\[ 
+||f||=\int_a^b |f(x)| ~dx 
+\] 
+defines a semi-norm on $V$ i.e. (1)  $||f||\geq 0$ (2) $||\lambda \cdot f || = |\lambda |\cdot ||f||$ (3) $||f + g|| \leq ||f|| + ||g||$ where $f,g\in V$ and 
+$\lambda \in \mathbb R$ (a norm satisfies $||f||=0$ implies $f=0$). Give an example of a non-zero function $f\in V$ such that $||f||=0$.  
+Let $U=C[a,b]$ be the subspace of continuous functions on $[a,b]$. Prove that $||f||$ is a norm when restricted to $U$. 
+
+\vskip 10pt 
+\noindent 
+4)  Continuing with notation and setting of the previous exercise. Then $d(f,g)=||f-g||$ defines a semi-distance on $V$ i.e. all axioms of the distance function are 
+satisfied except there are $f\neq g$ such that $d(f,g)=0$. To get a metric space one needs to identify all $f$ and $g$ such that $d(f,g)=0$. More precisely, 
+we have an equivalence relation $f\sim  g$ if $d(f,g)=0$ and then $\bar V$, the set of equivalence classes, is a proper metric space. 
+ On the other hand, $d$ is a proper distance function on $U$ and $U$ naturally embeds into $\bar V$.  Let 
+\[ 
+f_n(x)=
+ \begin{cases} -1  \text{ for } -1\leq x \leq -1/n \\
+nx  \text{ for } -1/n \leq x \leq 1/n \\ 
+ 1   \text{ for } 1/n\leq x \leq 1 \\
+  \end{cases} 
+\]
+be a sequence in $U=C[-1,1]$. Prove that $f_n$ is a Cauchy sequence in $U$. It does not have a limit point in $U$, however it does in $\bar V$. Find that limit. 
+
+
+
+\vskip 10pt 
+\noindent 
+5)  Let $f: [1,\infty)\rightarrow \mathbb R$ be a non-negative function such that $f$ is integrable on the closed segment $[1,c]$ for every $c\geq 1$. One can define 
+$\int_{1}^{\infty} f(x) ~dx$ as the supremum of $\int_{1}^{c} f(x) ~dx$ over all $c$. 
+Assume that $f$ is monotone decreasing. Prove that $\int_{1}^{\infty} f(x) ~dx$ is finite 
+if and only $\sum_{n=1}^{\infty} f(n)$ converges.  Apply this to prove that the series $\sum_{n=1}^{\infty} n^{-s}$ for $s>0$ is convergent if and only if $s>1$. 
+\vskip 10pt 
+\noindent 
+
+\vskip 10pt 
+\noindent 
+6) Let $(X,d)$ be a metric space and $f_n$ a sequence of continuous functions  $f_n : X \rightarrow \mathbb R$ uniformly converging to $f$. Let $x_n$ be a 
+sequence of points in $X$ such that $\lim_n x_n=x\in X$. Prove that $\lim_n f_n(x_n)=f(x)$ . 
+
+
+
+
+\end{document} 
