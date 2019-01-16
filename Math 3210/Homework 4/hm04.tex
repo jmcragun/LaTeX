@@ -61,10 +61,67 @@ Let $f$ be a differentiable function defined in a neighborhood of $x$. Assume  t
 Let $f: \mathbb R \rightarrow \mathbb R$ such that $|f'(x)| \leq C$ for some $0\leq C< 1$ and all $x$.  A number $x$ is a fixed point for $f$ if
 $f(x)=x$. Prove that $f$ cannot have two fixed points.
 Let $x_1$ be any real number, and define
-a sequence by $x_{n+1}=f(x_n)$. Prove that the sequence $\{x_n\}$ is Cauchy.
+a sequence by $x_{n+1}=f(x_n)$. Prove that the sequence $\{x_n\}$ is Cauchy. Prove that the limit is a fixed
+point of $f$. \\
+
+\textbf{Part 1:}
+\begin{proof}
+  Let $f$ be as above and suppose $f$ had any number $n$ of fixed points $x_1, ..., x_n$ with $n \geq 2$. Take $x_1$ and any fixed point $x_m, 1 < m \leq n$.
+  Then
+  $$ \frac{f(x_m) - f(x_1)}{x_m-x_1} = \frac{x_m - x_1}{x_m-x_1} = 1$$
+  Which by the Mean Value Theorem implies that $\exists c \in (x_1, x_m)$ such that $f'(c) = 1$. But by definition, $\forall x \in \mathbb R, f'(x) < 1$.
+  This is a contradiction, which implies that $f$ can at most have one fixed point, and thus cannot have two fixed points.
+\end{proof}
+\pagebreak
+\textbf{Part 2:}
+\begin{proof}
+  Let $f$ be as above and let $\epsilon > 0$. By the triangle inequality we have for any fixed $n > 1$ (w.l.o.g. assume $m > n$):
+  \begin{align}
+  |x_m - x_n| \leq |x_m - x_{m-1}| + \cdots + |x_{n+1} - x_{n}|
+  \end{align}
+  And since $|x_{n+1} - x_n| \leq C|x_n - x_{n-1}|$, it is also the case that
+  \begin{align*}
+    |x_{n+1} - x_n| &\leq C|x_n - x_{n-1}|\\
+    |x_{n+2} - x_{n+1}| &\leq C^2|x_n - x_{n-1}|\\
+    |x_{n+3} - x_{n+2}| &\leq C^3|x_n - x_{n-1}|\\
+    &\cdots
+  \end{align*}
+  Hence we have $|x_m - x_{m-1}| \leq C^{m-n}|x_n - x_{n-1}|$, which when combined with (1), we get
+  \begin{align*}
+    |x_m - x_n| &\leq C^{m-n}|x_n - x_{n-1}| + C^{m-n-1}|x_n - x_{n-1}| + \cdots + C|x_n - x_{n-1}|\\
+    &= \big(C^{m-n} + C^{m-n-1} + \cdots \big)|x_n - x_{n-1}|\\
+    &= \Bigg( \sum^{m-n}_{i=1} C^i \Bigg)|x_n - x_{n-1}|\\
+    &\leq\Bigg( \sum^{\infty}_{i=m-n} C^i \Bigg)|x_n - x_{n-1}|
+  \end{align*}
+  However as $m$ increases $\sum^{\infty}_{i=m-n} C^i$ approaches zero, implying that there exists an $m$ such that $\sum^{\infty}_{i=m-n} C^i < \frac{\epsilon}{|x_n - x_{n-1}|}$.
+  Hence,
+  $$ |x_m - x_n| \leq \Bigg( \sum^{\infty}_{i=m-n} C^i\Bigg) |x_n - x_{n-1}| < |x_n - x_{n-1}|\frac{\epsilon}{|x_n - x_{n-1}|} = \epsilon $$
+  Thus proving the sequence to be Cauchy.
+\end{proof}
+\textbf{Part 3:}
+\begin{proof}
+  It is clear that a limit to $\{x_n\}$ exists, since the sequence is Cauchy over a complete metric space. It is also true that
+  $$ \lim_{n \to \infty} x_n = L = \lim_{n \to \infty} x_{n-1} $$
+  And since $x_n = f(x_{n-1})$ and $f$ is continuous we have
+  $$ \lim_{n \to \infty} f(x_{n-1}) = f(\lim_{n \to \infty} x_{n-1}) = f(L) $$
+  Thus we have $\lim_{n \to \infty} x_{n} = L = f(L)$. Hence the limit is a fixed point.
+\end{proof}
 \section*{Question 4 (Concavity)}
 Let $f: (\alpha,\beta)  \rightarrow \mathbb R$ be twice differentiable function such that $f''\geq 0$ on the interval. Let $c\in (\alpha,\beta)$ and let $g(x)$ be the linear
 function whose graph is the tangent line of the graph of $f$ at $c$ i.e. $g(x)=f(c) + f'(c)(x-c)$. Prove that $f(x)\geq g(x)$ for $x\in (\alpha,\beta)$.
+
+\begin{proof}
+  Let $f$, $g$ be as above. Since it is only guranteed that $f$ is twice differentiable, one can represent $f$ using a Taylor function like so:
+  $$ f(x) = f(c) + f'(c)(x - c) +\frac{f''(b)(x - c)^2}{2} $$
+  With $b\in(\alpha, x)$. Using $g(x)$ as given we then have
+  \begin{align*}
+      f(x) - g(x) &= \Big(f(c) + f'(c)(x - c) +\frac{f''(b)(x - c)^2}{2}\Big) - f(c) + f'(c)(x-c)\\
+      &= \frac{f''(b)(x - c)^2}{2}
+  \end{align*}
+  However $\forall x \in (\alpha, \beta), f''(x) \geq 0$ as is $\frac{(x - c)^2}{2}$. Hence $f(x) - g(x) \geq 0$ and thus $f(x) \geq g(x)$
+\end{proof}
+\pagebreak
+
 \section*{Question 5 (Newton Method)}
 Let $f: \mathbb R \rightarrow \mathbb R$ be twice differentiable function. Let $[a,b]$ be a closed interval such that $f(a) <0$ and $f(b)>0$, $f'(x) \geq \delta>0$,
 and $f''(x)\geq 0$ for $x\in [a,b]$. Prove that there is unique $c\in (a,b)$ such that $f(c)=0$. Define a sequence by $x_1=b$ and
@@ -74,10 +131,92 @@ x_{n+1} = x_n -\frac{f(x_n)}{f'(x_{n})}
 Prove that the sequence is decreasing and bounded from below by $c$, it has a limit.
 Prove that the limit is $c$.  Check that the conditions are
 satisfied for $f(x)=x^2-2$ and the interval
-$[1,2]$. What is the limit of the sequence $\{x_n\}$? Compute $x_n$  for $n=1,2,3,4$.
+$[1,2]$. What is the limit of the sequence $\{x_n\}$? Compute $x_n$  for $n=1,2,3,4$.\\
+
+\textbf{Part 1:}
+\begin{proof}
+  Since $f(a) < 0$ and $f(b) > 0$, $0\in[f(a),f(b)]$ because segments in $\mathbb R$ are connected. And since the function is continuous (since it is differentiable) $f([a,b]) = [f(a), f(b)]$, and since both are closed and bounded, the segments must be compact.
+  Hence there exists at least one $c \in [a,b]$ such that $f(c)= 0$. Suppose then that there were many unique $c_j, j > 1$ such that $f(c_j) = 0$. Then we have for $1 \leq k \neq l \leq j$
+  $$ \frac{f(c_k) - f(c_l)}{k - l} = 0 $$
+  Which implies, by the mean value theorem, that $\exists d\in[a,b]$ such that $f'(d) = 0$. However $f'(x) \geq \delta>0$.
+  This is a condraction, hence there is only one unique point $c$ such that $f(c)= 0$.
+\end{proof}
+\textbf{Part 2:}
+\begin{proof}
+  First consider the base case,
+  $$ x_2 = b - \frac{f(b)}{f'(b)} $$
+  Since $f(b) > 0$ and $f'(x) > 0$, $x_1 > x_2$. Assume $x_1 \geq x_2 \geq \cdots \geq x_n$. Then we have
+  $$ x_{n} = f(x_{n-1}) - \frac{f(x_{n-1})}{f'(x_{n-1})} $$
+  Rearranging we get
+  $$ 0 = f(x_{n-1}) + f'(x_{n-1})(x_{n} - x_{n-1}) $$
+  Which is also the tangent line of $x_{n-1}$ at the point $x_n$. Since $f(x_n)$ is greater than or equal to the tangent line at $x_{n-1}$, (shown in question 4)
+  we can conclude then that $f(x_n) \geq 0$. Since
+  $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
+  We see that the rightmost term is either positive or zero, thus $x_{n+1} \leq x_n$. Thus the sequence is decreasing.
+\end{proof}
+\textbf{Part 3:}
+\begin{proof}
+  $$ \lim_{n \to \infty} x_n = \lim_{n \to \infty} x_{n-1} - \frac{\lim_{n \to \infty} f(x_{n-1})}{\lim_{n \to \infty}f'(x_{n-1})} $$
+  However $\lim_{n \to \infty} x_n = \lim_{n \to \infty} x_{n-1}$. Thus
+  $$ \frac{\lim_{n \to \infty} f(x_{n-1})}{\lim_{n \to \infty}f'(x_{n-1})} = 0 $$
+  Which implies that $\lim_{n \to \infty} f(x_{n-1}) = f(\lim_{n \to \infty} x_{n-1}) = 0$ since $f$ is continuous. This implies that the limit is $c$.
+\end{proof}
+\textbf{Part 4:}
+  \begin{itemize}
+      \item $f(1) = -1 < 0$
+      \item $f(2) = 2 > 0$
+      \item $f'(1) = 2 > 0$
+      \item $f'(2) = 4 > 0$
+      \item $f''(x) = 2 \geq 0$
+  \end{itemize}
+  Thus $f(x)=x^2-2$ satisfies the conditions for this problem. Since the limit of the sequence is the solution of the formula, the limit is $\sqrt{2}$.
+  \pagebreak
+
+\textbf{Part 5:}
+\begin{itemize}
+  \item $x_1 = 2$
+  \item $x_2 = 2 - \frac{2}{4} = \frac{3}{2}$
+  \item $x_3 = \frac{3}{2} - \frac{\frac{1}{4}}{3} = \frac{17}{12}$
+  \item $x_4 = \frac{17}{12} - \frac{\frac{1}{144}}{\frac{17}{6}} = \frac{577}{408}$
+\end{itemize}
 \section*{Question 6}
 Consider the power series $x-\frac{x^3}{3!} + \frac{x^5}{5!} - \ldots$, i.e. the sequence whose $n$-th term is $(-1)^{n-1}\frac{x^{2n-1}}{(2n-1)!}$. Compute the
 radius of convergence of this series. Use the theorem of Taylor to prove that $\sin(x)=x-\frac{x^3}{3!} + \frac{x^5}{5!} - \ldots$ for every $x$.
-Use this series to find a rational number that approximates $\sin(1/2)$ with an error less than $1/10^3$.
+Use this series to find a rational number that approximates $\sin(1/2)$ with an error less than $1/10^3$.\\
 
+\textbf{Part 1:}
+The radius of convergence is $\frac{1}{\alpha}$ where $\alpha = limsup \sqrt[n]{|a_n|}$. However, it is also known that if the limit test converges, so too does the root test.
+Attempting to perform the root test of the series we get
+\begin{align*}
+  \frac{a_{n+1}}{a_n} &= \frac{(-1)^{n+1}(2n - 1)!}{(-1^n)(2(n+1) - 1)!}\\[10pt]
+  &= \frac{(-1)^{n+1}(2n - 1)!}{(-1^n)(2n + 1}!\\[10pt]
+  &= \frac{-1}{(2n + 1)(2n)} \\[10pt]
+  &= \frac{-1}{4n^2 + 2n}
+\end{align*}
+And
+$$ \lim_{n \to \infty} \frac{-1}{4n^2 + 2n} = 0$$
+Hence the radius of convergence is $\frac{1}{0}$, or infinite.
+\pagebreak
+
+\textbf{Part 2:}
+\begin{proof}
+  To begin, we have the Taylor theorem, or
+  $$ f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)(x-a)^2}{2!} + \cdots \frac{f^{(n-1)}(a)(x-a)^{n-1}}{(n-1)!} + \frac{f^{(n)}(c)(x-a)^{n-1}}{(n)!} $$
+  Assume $a = 0$. Then we have
+  $$ sin(x) = sin(0) + cos(0)x - \frac{sin(0)x^2}{2!} - \frac{cos(0)x^3}{3!} + \cdots$$
+  Since $sin(0)= 0$, we can eliminate all the $sin$ terms. And since $cos(0) = 1$, what is left is
+  $$ sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots $$
+  As was to be shown
+\end{proof}
+
+\textbf{Part 3:}
+  Knowing the equation above, the most important part is finding a suffieciently large $n$ such that the error is less than $\frac{1}{1000}$.
+  Examining the error term we have
+  $$ \frac{sin^{(n)}(c)x^n}{n!} < \frac{1}{1000}$$
+  Knowing that $sin^{(n)}(c)$ is at most 1, it should be treated accordingly. Plugging $\frac{1}{2}$ into $x$ gives us
+  $$ \frac{(\frac{1}{2})^n}{n!} < \frac{1}{1000}$$
+  Which, as far as I'm aware, $n$ is best determined by starting at one and incrementing $n$ by two until the value is less than $\frac{1}{1000}$. Doing so gives us $n = 5$ with an error of
+  $$ \frac{(\frac{1}{2})^5}{5!} = \frac{1}{3840} < \frac{1}{1000} $$
+  Our computed approximation is then
+  $$ sin\Big(\frac{1}{2}\Big) \approx \frac{1}{2} - \frac{(\frac{1}{2})^8}{3!} + \frac{(\frac{1}{2})^5}{5!} = \frac{23}{48} $$
 \end{document}

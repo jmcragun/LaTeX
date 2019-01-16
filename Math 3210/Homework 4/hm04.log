@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.11)  12 NOV 2018 10:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.11)  12 NOV 2018 18:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -560,21 +560,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-[1] [2] [3] (./hm04.aux) ) 
+[1]
+Underfull \hbox (badness 10000) in paragraph at lines 61--66
+
+ []
+
+[2] [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 130--135
+
+ []
+
+[5]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 183--186
+
+ []
+
+[7]
+Overfull \hbox (41.60748pt too wide) detected at line 204
+\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 a\OT1/cmr/m/n/12 ) + [] + [] [] + []
+ []
+
+[8] (./hm04.aux) ) 
 Here is how much of TeX's memory you used:
- 3500 strings out of 492980
- 46976 string characters out of 6136207
- 114280 words of memory out of 5000000
- 6994 multiletter control sequences out of 15000+600000
- 12781 words of font info for 50 fonts, out of 8000000 for 9000
+ 3503 strings out of 492980
+ 47019 string characters out of 6136207
+ 115280 words of memory out of 5000000
+ 6997 multiletter control sequences out of 15000+600000
+ 13088 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,42p,294b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/te
-xlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hm04.pdf (4 pages, 144054 bytes).
+ 55i,12n,42p,294b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/20
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on hm04.pdf (9 pages, 174286 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
