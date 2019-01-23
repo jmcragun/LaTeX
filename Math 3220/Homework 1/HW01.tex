@@ -22,7 +22,7 @@
 \noindent\textbf{a.)} Let $f_n(x) = x^n \in \mathcal{C}([0,1])$. Prove that $\{f_n\}$ has no convergent sub sequence in the norm of $\mathcal{C}([0,1])$
 
 \begin{proof}
-  $\{f_n\}$ pointwise converges to the following function $f(x)$:
+  First we must note that $\{f_n\}$ and any of its subsequences converge pointwise to the following function $f(x)$:
   \[
   f(x) =
   \begin{cases}
@@ -31,11 +31,124 @@
    \end{cases}
   \]
   \begin{proof}
+    First note that $\forall n \in \mathbb{N}, f_n(0) = 0^n = 0$, and $f_n(1) = 1^n = 1$, hence $\{f_n\}$ and all of its subsequences converge to $f$ at 0 and 1.\\
 
+    \noindent Next, consider all $0 < x < 1$. Then for any infinite and monotone increasing subsequence $s(n):\mathbb{N} \to \mathbb{N}$ (including the identity function of the natural numbers, or in other words, $\{f_n\}$ itself.)
+    $$\lim_{n\to\infty}f_{s(n)}(x) \leq \sum_{n=1}^{\infty}f(x) = \sum_{n=1}^{\infty}x^n$$
+    But since $0 < x < 1$, $\sum_{n=1}^{\infty}x^n$ must be convergent; therefore implying that $\lim_{n\to\infty}f_{s(n)}(x) = 0$, thus showing that $f(x)$ is the pointwise limit of $\{f_n\}$.
   \end{proof}
+  \noindent It is immediately clear however that $f$ is not continuous, since if $ 0 < \epsilon < 1$, then one cannot find a $\delta$ such that $|1 - x| < \delta \rightarrow |f(1) - f(x)| < \epsilon$ since $|f(1) - f(x)| = 1$ for all $0 \leq x < 1$. As a result then, $f(x) \notin \mathcal{C}([0,1])$, and hence, $\{f_n\}$ nor any of its subsequences converge in $\mathcal{C}([0,1])$.
+\end{proof}
+\noindent\textbf{b.)} Use this to prove that the unit ball $B = \{f \in \mathcal{C}([0,1]) : ||f|| \leq 1\}$ is not compact.
+\begin{proof}
+  Using the norm $||f(x)|| = sup_{x\in[0,1]}(|f(x)|)$, one can see that for all $f_i\in\{f_n\}, ||f_i|| = 1$ since each $f_i$ is monotone increasing with a maximum on $[0,1]$ of $f_i(1) = 1$. Hence $\{f_n\} \in B$.\par However, according to theorem 3.6 in Walter Rudin's \textit{Priciples of Mathematical Analysis}, if $\{f_n\}$ is a sequence in a compact metric space, then some sub-sequence of $\{f_n\}$ converges to a point in $\mathcal{C}([0,1])$. However it has been shown that no subsequence of $\{f_n\}$ converges in $\mathcal{C}([0,1])$ (and by extention any of its subsets), and that all $f_i$ lie in $B$. Hence one must conclude that $B$ is not compact.
 \end{proof}
 \section*{Question 2}
+\noindent\textbf{a.)} Let $(X,d)$ be a metric space and let $K\subset X$ be a compact subset.  Prove that for all $\epsilon >0$ there are finitely many points $x_1,\dots,x_n\in K$ so that, for every $x\in K$ there exists an $i, i= 1,\dots,n$, such that $d(x,x_i) < \epsilon$
+\begin{proof}
+  The set of all open balls centered at all points of $K$ with radius $\epsilon$ creates an open cover of $K$. Call this set $B$. Because $K$ is compact, then $B$ has a finite sub-covering of open balls of radius $\epsilon$, $B_1, B_2, \cdots, B_N$. Therefore since $K \subset \bigcup\limits_{i=1}^{N}B_i$, it must be the case that for every $x \in K$, the distance between $x$ and at least one of the ball's centers $\{x_1, x_2, \cdots x_n \}$ has a distance less than $\epsilon$. Therefore, there exists an $i \in \mathbb{N} : 1 \leq i \leq n$ such that $\forall x \in K, d(x, x_i) < \epsilon$.
+\end{proof}
+\noindent\textbf{b.)} Use this to prove that, if $K\subset \mathcal{C}([0,1])$ is compact, then $K$ is equicontinuous.
+\begin{proof}
+  Since $K$ is compact, given any $\epsilon > 0$ select $f_1, f_2, \cdots, f_n$ such that $\forall f \in K, \exists i \in \mathbb{N}([1, n])$ such that $|f(x) - f_i(x)| < \frac{\epsilon}{3}$. Further, since $K$ is compact it is also known that each $f\in K$ are uniformly continuous. Therefore, for each $f_i$, $\exists \delta_i >0$ such that if $|x - y| < \delta$, then $|f_i(x) - f_i(y)| < \frac{\epsilon}{3}$. Let $\delta = \text{inf}(\delta_i)$. Then we have, if $|x-y| < \delta$
+  \begin{align*}
+    |f(x)- f(y)| &= |(f(x) - f_i(x))+(f_i(x) -f_i(y))+(f_i(y) - f(y))| \\
+    &\leq |f(x) - f_i(x)|+|f_i(x) -f_i(y)|+|f_i(y) - f(y)| \\
+    &< \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon
+  \end{align*}
+  Thus proving $K$ to be equicontinuous.
+\end{proof}
+\pagebreak
 \section*{Question 3}
+Recall the norms $||f||_1 = \int_0^1|f(x)| \ dx$ and $||f||_\infty= \sup_{x\in X} \{|f(x|)\}$ on $\mathcal{C}([0,1])$.\\
+
+\noindent\textbf{a.)} Prove that $||f||_1 \leq ||f||_\infty$ for all $f\in \mathcal{C}([0,1])$
+\begin{proof}
+  Note that
+  $$\int_a^b f(x) \ dx \leq (b - a) \cdot sup_{x\in[a,b]}(|f(x)|)$$
+  Then in this case,
+  $$||f||_1 = \int_0^1|f(x)| \ dx \leq (1 - 0) \cdot sup_{x\in[0,1]}(|f(x)|) = ||f||_\infty$$
+  Hence $\forall f \in \mathcal{C}([0,1])$, $||f||_1 \leq ||f||_\infty$.
+\end{proof}
+\noindent\textbf{b.)} Prove that there is no constant $C>0$ such that $||f||_\infty < C||f||_1$ holds for all $f\in \mathcal{C}([0,1])$ by producing a sequence $f_n\in\mathcal{C}([0,1])$ with $||f_n||_\infty \to \infty$ and $||f_n||_1 = 1$
+\begin{proof}
+  Consider the following sequence of functions, $\{f_n\}$:
+  \[
+  f_n(x) =
+  \begin{cases}
+      2n - 2n^2x & 0 \leq x \leq \frac{1}{n} \\
+      0 & \frac{1}{n} < x
+   \end{cases}
+  \]
+  Observe that for any fixed $n$,
+  \begin{align*}
+    ||f_n||_1 &= \int_0^1|f(x)| \ dx \\
+    &= \int_0^{\frac{1}{n}}|2n - 2n^2x| \ dx + \int_{\frac{1}{n}}^1 |0| \ dx \\
+    &= 2n\bigg(\frac{1}{n}\bigg) - n^2\bigg(\frac{1}{n}\bigg)^2\\
+    &= 1
+  \end{align*}
+  Also notice that since $||f_n||_\infty = 2n$, $\lim_{n\to\infty} ||f_n|| = \infty$. Fix any $n \in \mathbb{N}$, $C \in \mathbb{R}$ such that $||f_n||_\infty < C||f_n||_1$. Then for any $m \geq \big\lceil \frac{C}{2} \big\rceil$, we will have
+  $$ ||f_m||_\infty \ \geq \ C \ = \ C||f_m||_1 $$
+  Hence there does not exist any such $C>0$ such that $||f_i||_\infty < C||f_i||_1$ over all $f_i \in \{f_n\}$ since one can find an $m > n$ such that the inequality is no longer true. By extention it is the case that $\nexists \ C>0$ such that $||f||_\infty < C||f||_1$ holds for all $f\in \mathcal{C}([0,1])$.
+\end{proof}
+\noindent\textbf{c.)} Prove that $\mathcal{C}([0,1])$ with norm $||f||_1$ is not a complete metric space.  Observe that this gives another proof of (b).
+\begin{proof}
+  To do this, one should consider a different sequence of functions in $\mathcal{C}([0,1])$, $\{g_n\}$ defined like so:
+  \[
+  g_n(x) =
+  \begin{cases}
+      0 & 0 \leq x \leq \frac{1}{2} \\
+      n\big(x - \frac{1}{2}\big) & \frac{1}{2} < x \leq \frac{1}{2} + \frac{1}{n} \\
+      1 & \frac{1}{2} + \frac{1}{n} < x \leq 1
+   \end{cases}
+  \]
+  It is easy to see that each $g_n$ is continuous. For any $\epsilon > 0$ choose $0 < \delta < \frac{\epsilon}{n}$. Then there are three cases to consider:\\
+
+  \noindent\textbf{Case 1:} $x \leq \frac{1}{2}$ and $y \leq \frac{1}{2}$ or $x > \frac{1}{2} + \frac{1}{n}$ and $y > \frac{1}{2} + \frac{1}{n}$.
+
+  \noindent Given any $\epsilon > 0$, and if $|x - y| < \delta$, then $|g_n(x) - g_n(y)| = 0 < \epsilon$\\
+
+  \noindent\textbf{Case 2:} $\frac{1}{2} < x \leq \frac{1}{2} + \frac{1}{n}$ and $\frac{1}{2} < y \leq \frac{1}{2} + \frac{1}{n}$
+
+  \noindent Given any $\epsilon > 0$, and if $|x - y| < \delta$, then
+  \begin{align*}
+    |g_n(x) - g_n(y)| &= \Big|\Big(nx - \frac{n}{2}\Big) - \Big(ny - \frac{n}{2}\Big)\Big|\\
+    &= |nx - ny| = |n(x-y)|\\
+    &= |n|\cdot|x-y| < n\cdot\frac{\epsilon}{n} = \epsilon
+  \end{align*}
+  \noindent\textbf{Case 3:} Either $\text{min}(x,y) \leq \frac{1}{2}$ and $\frac{1}{2} < \text{max}(x,y) \leq \frac{1}{2} + \frac{1}{n}$ (which will be referred to as the ``lower case") or $\frac{1}{2} < \text{min}(x,y) \leq \frac{1}{2} + \frac{1}{n}$ and $\frac{1}{2} + \frac{1}{n} < \text{max}(x,y)$ (which will be referred to as the ``upper case").
+
+  In this case, notice that, given any $\epsilon > 0$, and $x, y$ such that $|x - y| < \delta$ we have
+  $$ |g_n(x) - g_n(y)| \leq \Big|\Big(nx - \frac{n}{2}\Big) - \Big(ny - \frac{n}{2}\Big)\Big| $$
+
+  For the lower case suppose that, without loss of generality, $\text{min}(x,y) = x$. This imples that $x \leq \frac{1}{2} < y$ and thus
+  $$nx - \frac{n}{2} \leq \frac{n}{2} - \frac{n}{2} = 0$$
+  and
+  $$ny - \frac{n}{2} > \frac{n}{2} - \frac{n}{2} = 0$$
+  Then since $g_n(y) = ny - \frac{n}{2} > 0$ and $f(x) = 0$ but $nx - \frac{n}{2} \leq 0$, it follows that the absolute difference between $g_n(y)$ and $nx - \frac{n}{2}$ must be greater than or equal to the absolute difference between $g_n(x)$ and $g_n(y)$, as asserted above.
+
+  For the upper case suppose that, without loss of generality, $\text{max}(x,y) = y$. This means that $\frac{1}{2} < x \leq \frac{1}{2} + \frac{1}{n}$ and $\frac{1}{2} + \frac{1}{n} < y$. It then follows that
+  $$ ny - \frac{n}{2} > n\bigg(\frac{1}{2} + \frac{1}{n}\bigg) - \frac{n}{2} = \frac{n}{2} + 1 - \frac{n}{2} = 1$$
+  Hence $ny - \frac{n}{2} > 1$ and $g_n(y) = 1$. Since expressions in the previous case show that $nx - \frac{n}{2} = g_n(x) > 0 $, it follows that $\big|g_n(x) - \big(ny - \frac{n}{2}\big)\big| \geq |g_n(x) - g_n(y)|$ since $ny - \frac{n}{2} \geq g_n(y)$.
+
+  Then it is very straightforward since in either the lower or upper case we have:
+  \begin{align*}
+    |g_n(x) - g_n(y)| &\leq \Big|\Big(nx - \frac{n}{2}\Big) - \Big(ny - \frac{n}{2}\Big)\Big|\\
+    &= |nx - ny| = |n(x-y)|\\
+    &= |n|\cdot|x-y| < n\cdot\frac{\epsilon}{n} = \epsilon
+  \end{align*}
+  Hence $\{g_n\}$ is a sequence of continuous functions in $\mathcal{C}([0,1])$. Next, it is plain to see that $\{g_n\}$ converges pointwise to the following function $g$:
+  \[
+  g(x) =
+  \begin{cases}
+      0 & 0 \leq x \leq \frac{1}{2} \\
+      1 & \frac{1}{2} < x \leq 1
+   \end{cases}
+  \]
+  Since for any $n$, if $0 \leq x \leq \frac{1}{2}$, $g_n(x) = 0$. For any $\frac{1}{2} < x < 1$, choose any $N \in \mathbb{N}$ such that $N > \big(x - \frac{1}{2}\big)^{-1}$. It follows that $x > \frac{1}{N} + \frac{1}{2}$ and thus $g_N(x) = 1$, proving $g(x)$ to be the pointwise limit of $\{g_n\}$.
+  \par It is also clear that $g(x)$ is not continuous since $\forall \delta > 0$, $\exists x \in [\frac{1}{2} - \delta, \frac{1}{2} + \delta]$ such that $|g\big(\frac{1}{2}\big) - g(x)| = 1$ since $\frac{1}{2} + \delta > \frac{1}{2}$. It follows then that for all $\epsilon > 0$, $|x - y| < \delta$ does not imply that $|g(x) - g(y)| < \epsilon$. Hence $g(x)$ is not continuous and $g \notin \mathcal{C}([0,1])$. This also implies that $\{g_n\}$ does not converge in $\mathcal{C}([0,1])$.
+  \par It then suffices to prove that $\mathcal{C}([0,1])$ is not a complete metric space by showing that that $\{g_n\}$ is Cauchy, since it has already been shown to not converge in $\mathcal{C}([0,1])$.
+\end{proof}
 \section*{Question 4}
 \section*{Question 5}
 
