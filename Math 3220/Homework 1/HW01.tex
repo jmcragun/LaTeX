@@ -148,6 +148,13 @@ Recall the norms $||f||_1 = \int_0^1|f(x)| \ dx$ and $||f||_\infty= \sup_{x\in X
   Since for any $n$, if $0 \leq x \leq \frac{1}{2}$, $g_n(x) = 0$. For any $\frac{1}{2} < x < 1$, choose any $N \in \mathbb{N}$ such that $N > \big(x - \frac{1}{2}\big)^{-1}$. It follows that $x > \frac{1}{N} + \frac{1}{2}$ and thus $g_N(x) = 1$, proving $g(x)$ to be the pointwise limit of $\{g_n\}$.
   \par It is also clear that $g(x)$ is not continuous since $\forall \delta > 0$, $\exists x \in [\frac{1}{2} - \delta, \frac{1}{2} + \delta]$ such that $|g\big(\frac{1}{2}\big) - g(x)| = 1$ since $\frac{1}{2} + \delta > \frac{1}{2}$. It follows then that for all $\epsilon > 0$, $|x - y| < \delta$ does not imply that $|g(x) - g(y)| < \epsilon$. Hence $g(x)$ is not continuous and $g \notin \mathcal{C}([0,1])$. This also implies that $\{g_n\}$ does not converge in $\mathcal{C}([0,1])$.
   \par It then suffices to prove that $\mathcal{C}([0,1])$ is not a complete metric space by showing that that $\{g_n\}$ is Cauchy, since it has already been shown to not converge in $\mathcal{C}([0,1])$.
+  \begin{proof}
+    Given some $\epsilon > 0$, select any $m, n, N \in \mathbb{N}$ such that $n \neq m$, $m, n \geq N$ and $N > \frac{1}{\epsilon}$. Without loss of generality, suppose that $n > m$. Then
+    $$ ||f_n(x) - f_m(x)||_1 = \int_0^1 |f_n(x) - f_m(x)| dx$$
+    Since $f_n(x) - f_m(x) = 0$ for all $0 \leq x \leq \frac{1}{2}$ and $\frac{1}{2} + \frac{1}{m} < x \leq 1$, one need only consider two intervals of $x$:
+    $$ \int_\frac{1}{2}^{\frac{1}{2} + \frac{1}{n}} (n-m)(x-\frac{1}{2}) \ dx + \int_{\frac{1}{2} + \frac{1}{n}}^{\frac{1}{2} + \frac{1}{m}} 1 - m(x - \frac{1}{2}) \ dx$$ 
+  \end{proof}
+  \noindent Thus $\mathcal{C}([0,1])$ is not complete since $\{g_n\}$ is Cauchy.
 \end{proof}
 \section*{Question 4}
 \section*{Question 5}
