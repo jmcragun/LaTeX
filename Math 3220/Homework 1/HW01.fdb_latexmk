@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1548269620 "HW01.tex" "HW01.pdf" "HW01" 1548269622
-  "HW01.aux" 1548269621 8 a94a2480d3289e625eea47cd1b285758 ""
-  "HW01.tex" 1548269618 11965 30698d3ace138be3100d7c755246f09d ""
+["pdflatex"] 1548284155 "HW01.tex" "HW01.pdf" "HW01" 1548284157
+  "HW01.aux" 1548284156 8 a94a2480d3289e625eea47cd1b285758 ""
+  "HW01.tex" 1548284154 15449 359179fdfc3aef0aec7079b2017be45c ""
   "c:/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1515706743 3332 103109f5612ad95229751940c61aada0 ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1515705223 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1515705223 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -88,6 +88,6 @@
   "c:/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1515712946 4127837 ceceae6e10a2789389d516ce5d8c86f9 ""
   "c:/texlive/2017/texmf.cnf" 1515712750 673 4ae7b2f49cee444c5343a45b5d0f169c ""
   (generated)
+  "HW01.aux"
   "HW01.log"
   "HW01.pdf"
-  "HW01.aux"

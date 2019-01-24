@@ -149,14 +149,41 @@ Recall the norms $||f||_1 = \int_0^1|f(x)| \ dx$ and $||f||_\infty= \sup_{x\in X
   \par It is also clear that $g(x)$ is not continuous since $\forall \delta > 0$, $\exists x \in [\frac{1}{2} - \delta, \frac{1}{2} + \delta]$ such that $|g\big(\frac{1}{2}\big) - g(x)| = 1$ since $\frac{1}{2} + \delta > \frac{1}{2}$. It follows then that for all $\epsilon > 0$, $|x - y| < \delta$ does not imply that $|g(x) - g(y)| < \epsilon$. Hence $g(x)$ is not continuous and $g \notin \mathcal{C}([0,1])$. This also implies that $\{g_n\}$ does not converge in $\mathcal{C}([0,1])$.
   \par It then suffices to prove that $\mathcal{C}([0,1])$ is not a complete metric space by showing that that $\{g_n\}$ is Cauchy, since it has already been shown to not converge in $\mathcal{C}([0,1])$.
   \begin{proof}
-    Given some $\epsilon > 0$, select any $m, n, N \in \mathbb{N}$ such that $n \neq m$, $m, n \geq N$ and $N > \frac{1}{\epsilon}$. Without loss of generality, suppose that $n > m$. Then
-    $$ ||f_n(x) - f_m(x)||_1 = \int_0^1 |f_n(x) - f_m(x)| dx$$
-    Since $f_n(x) - f_m(x) = 0$ for all $0 \leq x \leq \frac{1}{2}$ and $\frac{1}{2} + \frac{1}{m} < x \leq 1$, one need only consider two intervals of $x$:
-    $$ \int_\frac{1}{2}^{\frac{1}{2} + \frac{1}{n}} (n-m)(x-\frac{1}{2}) \ dx + \int_{\frac{1}{2} + \frac{1}{n}}^{\frac{1}{2} + \frac{1}{m}} 1 - m(x - \frac{1}{2}) \ dx$$ 
+    Given some $\epsilon > 0$, select any $m, n, N \in \mathbb{N}$ such that $n \neq m$; $m, n \geq N$ and $N > \frac{1}{\epsilon}$. Without loss of generality, suppose that $n > m$. Then
+    $$ ||g_n(x) - g_m(x)||_1 = \int_0^1 |g_n(x) - g_m(x)| dx$$
+    Since $g_n(x) - g_m(x) = 0$ for all $0 \leq x \leq \frac{1}{2}$ and $\frac{1}{2} + \frac{1}{m} < x \leq 1$, one need only consider two intervals of $x$:
+    $$ \int_\frac{1}{2}^{\frac{1}{2} + \frac{1}{n}}|(n-m)\Big(x-\frac{1}{2}\Big)| \ dx + \int_{\frac{1}{2} + \frac{1}{n}}^{\frac{1}{2} + \frac{1}{m}}| 1 - m\Big(x - \frac{1}{2}\Big)| \ dx$$
+    Examining the left hand expression, note that since $n > m$, $n - m > 0$ and since $x \geq \frac{1}{2}$, we have $x - \frac{1}{2} \geq 0$. As a result $(n-m)(x-\frac{1}{2}) \geq 0$ and $|(n-m)(x-\frac{1}{2})| = (n-m)(x-\frac{1}{2})$. So then we have
+    $$\int_\frac{1}{2}^{\frac{1}{2} + \frac{1}{n}}(n-m)\Big(x-\frac{1}{2}\Big) = \frac{n-m}{2}\Big(x(x - 1)\big|_\frac{1}{2}^{\frac{1}{2} + \frac{1}{n}}\Big)$$
+    Which by plugging in the integral's bounds gives us
+    $$ \frac{n-m}{2}\Big(\Big(\frac{1}{n} + \frac{1}{2}\Big)\Big(\frac{1}{n} - \frac{1}{2}\Big) - \Big(\frac{1}{2}\Big)\Big(-\frac{1}{2}\Big)\Big) = \frac{1}{2n} - \frac{m}{2n^2} $$
+    Next consider the right hand expression. Because $x \leq \frac{1}{2} + \frac{1}{m}$, $m(x - \frac{1}{2}) \leq m((\frac{1}{m} + \frac{1}{2} - \frac{1}{2})) = 1$. So since $m(x - \frac{1}{2}) \leq 1$, it follows that $1 - m(x - \frac{1}{2}) \geq 0$ and hence $|1 - m(x - \frac{1}{2})| = 1 - m(x - \frac{1}{2})$. Then we have
+    $$ \int_{\frac{1}{2} + \frac{1}{n}}^{\frac{1}{2} + \frac{1}{m}} 1 - m\Big(x - \frac{1}{2}\Big) \ dx = \frac{1}{m} - \frac{1}{n} - \frac{m}{2}\Big(x(x-1)\big|_{\frac{1}{2} + \frac{1}{n}}^{\frac{1}{2}+\frac{1}{m}}\Big) $$
+    Evaluating the rightmost term yields
+    $$ \Big(\frac{1}{m} - \frac{1}{n}\Big) - \Big(\frac{1}{2m} - \frac{m}{2n^2}\Big)  = \frac{m}{2n^2} + \frac{1}{2m} - \frac{1}{n} $$
+    Combining the two integrals then gives us
+    $$ \Big(\frac{1}{2n} - \frac{m}{2n^2}\Big) + \Big(\frac{m}{2n^2} + \frac{1}{2m} - \frac{1}{n}\Big) = \frac{1}{2m} - \frac{1}{2n} $$
+    However since $n > m$ it follows that $\frac{1}{2m} > \frac{1}{2n}$ and hence $\frac{1}{2m} - \frac{1}{2n} > 0$. It is also then the case that
+    $$ \frac{1}{2m} - \frac{1}{2n} < \frac{1}{2m} < \frac{1}{m} \leq \frac{1}{N} < \epsilon $$
+    Thereby proving that $\{g_n\}$ is a Cauchy sequence.
   \end{proof}
-  \noindent Thus $\mathcal{C}([0,1])$ is not complete since $\{g_n\}$ is Cauchy.
+  \noindent Thus $\mathcal{C}([0,1])$ is not complete since $\{g_n\} \subset \mathcal{C}([0,1])$ is Cauchy and $\{g_n\}$ does not converge in $\mathcal{C}([0,1])$.
 \end{proof}
 \section*{Question 4}
+Given the following function $f(x)$,
+$$ f(x) = \sum_{n=1}^\infty \frac{1}{1 + n^2x} $$
+\noindent\textbf{a.)} For which $x \in \mathbb{R}$ does the series converge (absolutely)?\\
+
+It is clear to see that the series does not converge when $x = 0$ since the series devolves into $1 + 1 + 1 + \cdots = \infty$. It also does not converge when $x = \frac{-1}{k^2}$, where $k = 1, 2, 3, ...$ since the $k$-th element of the sequence will be undefined. Then consider any other $x in \mathbb{R}$. If $x < -1$ or $x > 0$, then
+$$ \Big|\frac{1}{1+n^2x}\Big| \leq \Big|\frac{1}{n^2x}\Big| $$
+And is therefore absolutely convergent by direct comparison to the $p=2$ series. For $-1 > x > 0$, the problem is a bit more complex. Given any $1 > \delta > 0$, where $x \in (-1, -\delta]$ is not of an illegal form ($\frac{-1}{k^2}$), then when $n \geq \sqrt{(\frac{2}{\delta})}$ we have
+$$ \Big|\frac{1}{1+n^2x}\Big| \leq \frac{1}{n^2} \cdot \frac{1}{\delta - \frac{1}{n^2}} \leq \frac{2}{n^2\delta}$$
+Which implies that $f(x)$ converges absolutely between $(-1, 0)$ as well. This answers both part a.) and part b.) of this question.\\
+
+\noindent\textbf{c.)} Is $f$ bounded?\\
+
+It appears that $f$ is in fact not bounded. 
+
 \section*{Question 5}
 
 \end{document}
