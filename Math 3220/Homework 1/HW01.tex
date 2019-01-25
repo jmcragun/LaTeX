@@ -174,16 +174,29 @@ Given the following function $f(x)$,
 $$ f(x) = \sum_{n=1}^\infty \frac{1}{1 + n^2x} $$
 \noindent\textbf{a.)} For which $x \in \mathbb{R}$ does the series converge (absolutely)?\\
 
-It is clear to see that the series does not converge when $x = 0$ since the series devolves into $1 + 1 + 1 + \cdots = \infty$. It also does not converge when $x = \frac{-1}{k^2}$, where $k = 1, 2, 3, ...$ since the $k$-th element of the sequence will be undefined. Then consider any other $x in \mathbb{R}$. If $x < -1$ or $x > 0$, then
+\noindent It is clear to see that the series does not converge when $x = 0$ since the series devolves into $1 + 1 + 1 + \cdots = \infty$. It also does not converge when $x = \frac{-1}{k^2}$, where $k = 1, 2, 3, ...$ since the $k$-th element of the sequence will be undefined. Then consider any other $x \in \mathbb{R}$. If $x < -1$ or $x > 0$, then
 $$ \Big|\frac{1}{1+n^2x}\Big| \leq \Big|\frac{1}{n^2x}\Big| $$
-And is therefore absolutely convergent by direct comparison to the $p=2$ series. For $-1 > x > 0$, the problem is a bit more complex. Given any $1 > \delta > 0$, where $x \in (-1, -\delta]$ is not of an illegal form ($\frac{-1}{k^2}$), then when $n \geq \sqrt{(\frac{2}{\delta})}$ we have
+And is therefore absolutely convergent by direct comparison to the $p=2$ series. For $-1 > x > 0$, the problem is a bit more complex. Given any $1 > \delta > 0$, where $x \in (-1, -\delta]$ is not of an illegal form (i.e. $x \neq \frac{-1}{k^2}$), then when $n \geq \sqrt{(\frac{2}{\delta})}$ we have
 $$ \Big|\frac{1}{1+n^2x}\Big| \leq \frac{1}{n^2} \cdot \frac{1}{\delta - \frac{1}{n^2}} \leq \frac{2}{n^2\delta}$$
-Which implies that $f(x)$ converges absolutely between $(-1, 0)$ as well. This answers both part a.) and part b.) of this question.\\
+Which implies that $f(x)$ converges absolutely between $(-1, 0)$ as well by the Weierstrass M-Test. This answers both part a.) and part b.) of this question.\\
 
 \noindent\textbf{c.)} Is $f$ bounded?\\
 
-It appears that $f$ is in fact not bounded. 
+\noindent It appears that $f$ is in fact not bounded, since for $m > 0$ we have
+$$ f\Big(\frac{1}{m^2}\Big) \ \geq \  \sum_{n=1}^m \frac{1}{1+\frac{n^2}{m^2}} \ \geq \ \frac{m}{2} $$
+Which means that $\lim_{m\to\infty} f(\frac{1}{m^2}) \geq \lim_{m\to\infty} \frac{m}{2} = \infty$. And hence $\nexists M > 0$ such that $\forall x \in \mathbb{R}$, $|f(x)| \leq M$. Hence $f$ is not bounded.
 
 \section*{Question 5}
+
+\noindent\textbf{a.)} Using the same $f$ as in question 4, for which intervals in $\mathbb{R}$ does $f$ converge uniformly?\\
+
+\noindent $f$ converges uniformly on any valid interval (i.e. one that does not contain $\frac{-1}{k^2}$, $k = 1, 2, 3, ...$) and does not have zero as an endpoint. This has already been shown since a consequence of passing the Weierstrass M-test (Theorem 7.10) is that the sequence converges both absolutely \textit{and} uniformly, which is what was applied in the previous question.\\
+
+\noindent\textbf{b.)} For which intervals in $\mathbb{R}$ does $f$ converge, but not uniformly?\\
+
+\noindent $f$ converges, however not uniformly, on negative intervals that do not contain illegal values (0, $\frac{-1}{k^2}$, $k = 1, 2, 3, ...$) and have 0 as an exclusive end point. This is because over valid negative intervals in the form $[-\delta, 0)$ with $\delta > 0$, $f$ does not define a uniformly Cauchy sequence, which implies that the convergence of $f$ is not uniform on that interval.
+\par To see that $f$ is not uniformly Cauchy, consider that for any $n$-th term of a finite subsequence of $f(x)$, when $x = \frac{1}{2n^2}$, that term must be equal to $2$. And hence, the difference between that partial sum and the immediate previous is $2$. This means that for any $n, N \in \mathbb{N}$ with $n \geq N$, there is an $x$ such that not all $\epsilon > 0$ are less than the distance between the $n$-th and $(n-1)$-th partial sum. Thereby proving that the sequence is not uniformly Cauchy.
+\par However, it should be noted that this is only possible if one ignores or allows invalid $x$ to be in the negative interval described above since $\lim_{k\to\infty} \frac{-1}{k^2} = 0$. If one requires that the interval not contain any invalid $x$, then the distance between 0 and the next nearest $\frac{-1}{k^2}$ approaches 0, making it effectively impossible to define a negative-valued interval that does not contain some $\frac{-1}{k^2}$ and has a right hand exclusive bound of $0$.
+\par In other words, in order for $f$ to converge on all $x$ in some interval with a negative boundary on the left hand size, the right hand bound cannot be zero because any $[-\delta, 0)$ with $\delta > 0$ must containt at least one (in fact, infinitely many) numbers in the form $\frac{-1}{k^2}$, $k = 1, 2, 3, ...$, and thus there are values in the interval for which $f$ does not converge inside that interval, meaning that $f$ cannot possibly converge uniformly on that interval.
 
 \end{document}
